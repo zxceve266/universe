@@ -1,13 +1,21 @@
 <template>
-    <div>
-        <b-dropdown id="dropdown-1" :text="name" class="m-md-2">
-            <b-dropdown-item @click.prevent="setCatgory('全部')">全部</b-dropdown-item>
-            <b-dropdown-item 
-            v-for="item in category" 
+    <div class="category-list container-fluid">
+        <ul>
+            <li @click="setCatgory('全部')"
+            :class="{active:categoryClass === '全部'}"
+            >
+                <span>全部</span>
+                <span class="count">{{category.length}}</span>
+            </li>
+            <li 
+            v-for ="item in category"
             :key="item.id"
-            @click.prevent="setCatgory(item)"
-            >{{item}}</b-dropdown-item>
-        </b-dropdown>
+            :class="{active:categoryClass === item}"
+            @click="setCatgory(item)"
+            >
+            {{item}}
+            </li>
+        </ul>
     </div>
 </template>
 
@@ -15,7 +23,7 @@
     export default {
         data(){
             return{
-                name:'全部'
+                categoryClass:'全部'
             }
         },
         props:{
@@ -23,13 +31,54 @@
         },
         methods:{
             setCatgory(item){
+                this.categoryClass = item
                 this.$emit('chooseCategory',item)
-                this.name = item
             }
         }
     }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
+.category-list{
+    ul{
+        list-style: none;
+        padding: 10px;
+    }
+    li{
+        border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+        border-left: 1px solid  rgba(0, 0, 0, 0.15);
+        border-right: 1px solid  rgba(0, 0, 0, 0.15);
+        padding: 10px;
+        text-align: center;
+        font-size: 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        cursor: pointer;
+        &:first-child{
+            border-top: 1px solid  rgba(0, 0, 0, 0.15);
+            border-radius: 10px 10px 0 0;
+        }
+        &:last-child{
+            border-radius: 0 0 10px 10px;
+        }
+        &:hover{
+            background-color: #007bff;
+            color: #fff;
+        }
+        
+    }
 
+    .active{
+        background-color: #007bff;
+        color: #fff;
+    }
+    .count{
+        background-color: red;
+        width: 30px;
+        height: 30px;
+        color: #fff;
+        border-radius: 50%;
+    }
+}
 </style>

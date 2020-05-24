@@ -32,12 +32,12 @@ export default {
       'isLoading',
       'products',
     ]),
-    productCategory(){
+    productCategory(){//找出所有的分類
       return category.parseProductCategories(this.products)
     }
   },
   methods:{
-    OnSetCategory(item){
+    OnSetCategory(item){//設定目前選中的 分類
       this.currentCategory = item
     }
   },

@@ -30,7 +30,7 @@ export default {
 .section-title{
   width: 100%;
   height: 20vh;
-  background-color: #000;
+  background-color: #1f2833;
   position: relative;
   display: flex;
   justify-content: center;

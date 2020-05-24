@@ -34,9 +34,18 @@ Vue.use(VueRouter)
     component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
   },
   {
+    path: '/info',
+    name: 'Info',
+    component: () => import('../views/ProductInfo.vue')
+  },
+  {
     path: '/Admin',
     name: 'Admin',
     component: () => import('../views/Admin.vue')
+  },
+  {
+    path:'*',
+    redirect:'/'
   }
 ]
 

@@ -1,4 +1,4 @@
-export const parseProductCategories = (products) => {
+export const parseProductCategories = (products) => {//根據原資料Category Key 返回出所有Category
     const categories = {};
     products.forEach((product) => {
         categories[product.category] = product.category;
@@ -6,7 +6,7 @@ export const parseProductCategories = (products) => {
     return Object.keys(categories);
 }
 
-export let setProductCategories = (category,products) =>{
+export let setProductCategories = (category,products) =>{//根據category來過濾商品 返回新陣列
     if(category === "全部"){
         return products
     }else{

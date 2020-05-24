@@ -17,11 +17,6 @@
 
                 <!-- Right aligned nav items -->
                 <b-navbar-nav class="ml-auto">
-                    <b-nav-form>
-                        <b-form-input size="sm" class="mr-sm-2" placeholder="Search"></b-form-input>
-                        <b-button size="sm" class="my-2 my-sm-0" type="submit">搜尋</b-button>
-                    </b-nav-form>
-
                     <b-nav-item-dropdown right>
                         <!-- Using 'button-content' slot -->
                         <template v-slot:button-content>
@@ -43,12 +38,12 @@
     }
 </script>
 
-<style>
+<style lang="scss">
 .navbar{
     width: 100%;
     background-color: #000;
-    position: fixed;
-    z-index: 99;
+    // position: fixed !important;
+    // z-index: 99;
     left: 0;
     top: 0;
 }
@@ -56,4 +51,17 @@
     font-size: 20px;
     margin: 0 10px;
 }
+
+.navbar-dark .navbar-nav .nav-link{
+    color: #66fcf1;
+}
+
+.navbar-dark .navbar-toggler{
+    border-color: #66fcf1;
+}
+
+.navbar-toggler-icon{
+    color: #66fcf1;
+}
+
 </style>
