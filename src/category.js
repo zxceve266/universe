@@ -10,11 +10,8 @@ export let setProductCategories = (category,products) =>{//根據category來過�
     if(category === "全部"){
         return products
     }else{
-        let arr = []
-        products.forEach((item)=>{
-            if(item.category === category){
-                arr.push(item)
-            }
+        let arr = products.filter((item)=>{
+            return item.category === category
         })
         return arr
     }

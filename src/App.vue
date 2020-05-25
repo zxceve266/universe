@@ -15,7 +15,7 @@ import Footer from './views/Footer'
       Footer,
     },
     created(){
-      this.$store.commit('Loading')
+      this.$store.commit('ToggleLoading')
       this.$store.dispatch('setProdcutsRef')
     }
   }

@@ -1,6 +1,8 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
+// import Products from '../views/Products.vue'
+import Info from '../views/ProductInfo.vue'
 
 Vue.use(VueRouter)
 
@@ -11,9 +13,17 @@ Vue.use(VueRouter)
     component: Home
   },
   {
-    path: '/products',
+    path: '/products/:id?',
     name: 'Products',
-    component: () => import('../views/Products.vue')
+    component: () => import('../views/Products.vue'),
+    children:[
+      {
+        path: 'info',
+        name: 'Info',
+        component: Info
+      },
+    ]
+    
   },
   {
     path: '/serve',
@@ -33,11 +43,8 @@ Vue.use(VueRouter)
     // which is lazy-loaded when the route is visited.
     component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
   },
-  {
-    path: '/info',
-    name: 'Info',
-    component: () => import('../views/ProductInfo.vue')
-  },
+  
+
   {
     path: '/Admin',
     name: 'Admin',
@@ -50,7 +57,14 @@ Vue.use(VueRouter)
 ]
 
 const router = new VueRouter({
-  routes
+  routes,
+  scrollBehavior (to, from, savedPosition) {
+    if (savedPosition) {
+      return savedPosition
+    } else {
+      return { x: 0, y: 0 }
+    }
+  }
 })
 
 export default router

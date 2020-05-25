@@ -9,7 +9,14 @@
                         <h5 class="card-title">{{item.name}}</h5>
                         <p class="card-text">{{item.description}}</p>
                         <p class="card-text price">${{item.price}}</p>
-                        <a href="#" class="btn btn-primary" @click="goToInfo(item)">觀看詳情</a>
+                        <!-- <a href="#" class="btn btn-primary" @click="goToInfo(item)">觀看詳情</a> -->
+                        <router-link 
+                        @click="ToggleInfo"
+                        :to="`/products/${item.id}/info`" 
+                        class="btn btn-primary"
+                        >
+                        觀看詳情
+                        </router-link>
                     </div>
                 </div>
             </div>
@@ -29,9 +36,9 @@ import{ setProductCategories } from '../../category'
             }
         },
         methods:{
-            goToInfo(item){
-                console.log(item.id)
-                this.$router.push('/info')
+            ToggleInfo(){
+                console.log(666)
+                this.$store.commit('ToggleInfo')
             }
         }
     }

@@ -1,6 +1,7 @@
 <template>
   <div class="products container-fluid">
-    <div class="row mt-4">
+    <router-view></router-view>
+    <div class="row mt-4" v-if="!isInfo">
       <div class="col-12 col-md-3">
         <SideList :category="productCategory" @chooseCategory="OnSetCategory"/>
       </div>
@@ -8,6 +9,7 @@
         <ProductItem :category="currentCategory" :products="products"/>
       </div>
     </div>
+    
     <loading :active.sync="isLoading"></loading>
   </div>
 </template>
@@ -30,6 +32,7 @@ export default {
   computed:{
     ...mapGetters([
       'isLoading',
+      'isInfo',
       'products',
     ]),
     productCategory(){//找出所有的分類

@@ -6,7 +6,16 @@ const state = {
 }
 
 const getters = {
-    products:(state)=> state.products
+    products:(state)=> state.products,
+
+    findItem:(state)=>{
+        return (id)=>{
+            let pickItem = state.products.filter((item)=>{
+                return item.id === id
+            })
+            return pickItem
+        }
+    }
 }
 
 const mutations={
@@ -16,7 +25,7 @@ const mutations={
 const actions ={
     setProdcutsRef : firestoreAction( async (context)=>{ //讓本地 menuItems 與 firestore 'Product' 同步
     await context.bindFirestoreRef('products',dbProductsRef)
-    context.commit('NotLoading')
+    context.commit('ToggleLoading')
     }),
 
     addNewProduct:async(context,payload)=>{

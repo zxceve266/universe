@@ -1,19 +1,21 @@
 const state = {
-    isLoading : false
+    isLoading : false,
+    isInfo:false
 }
 
 const getters = {
     isLoading(state){
         return state.isLoading
-    }
+    },
+    isInfo:(state)=> state.isInfo
 }
 
 const mutations = {
-    Loading(state){
-        state.isLoading = true
+    ToggleLoading(state){
+        state.isLoading = !state.isLoading
     },
-    NotLoading(state){
-        state.isLoading = false
+    ToggleInfo(state){
+        state.isInfo = !state.isInfo
     }
 }
 
