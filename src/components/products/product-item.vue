@@ -9,14 +9,17 @@
                         <h5 class="card-title">{{item.name}}</h5>
                         <p class="card-text">{{item.description}}</p>
                         <p class="card-text price">${{item.price}}</p>
-                        <!-- <a href="#" class="btn btn-primary" @click="goToInfo(item)">觀看詳情</a> -->
-                        <router-link 
-                        @click="ToggleInfo"
-                        :to="`/products/${item.id}/info`" 
-                        class="btn btn-primary"
-                        >
-                        觀看詳情
-                        </router-link>
+                        <div class="d-flex justify-content-between w-100">
+                            <router-link 
+                            :to="`/products/${item.id}/info`" 
+                            class="btn btn-outline-primary"
+                            >
+                            <i class="fas fa-search-dollar"></i>
+                            觀看詳情
+                            </router-link>
+                            <button class="btn btn-danger" @click="addToCart(item)">
+                                <i class="fas fa-cart-arrow-down"></i> 馬上下單</button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -36,9 +39,9 @@ import{ setProductCategories } from '../../category'
             }
         },
         methods:{
-            ToggleInfo(){
-                console.log(666)
-                this.$store.commit('ToggleInfo')
+            addToCart(item){
+                this.$store.commit('AddToCart',item)
+                this.$swal("以加入購物車",'幹的好','success')
             }
         }
     }

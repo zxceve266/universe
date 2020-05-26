@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <Navbar/>
-    <router-view/>
+    <router-view class="pt-4 mt-4"/>
     <Footer/>
   </div>
 </template>
@@ -28,6 +28,9 @@ import Footer from './views/Footer'
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   position: relative;
+}
+.space{
+  margin-top: 60px;
 }
 
 </style>

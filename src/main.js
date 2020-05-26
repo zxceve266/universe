@@ -2,16 +2,19 @@ import Vue from 'vue'
 import App from './App.vue'
 import router from './router/router'
 import store from './store/store'
-import { BootstrapVue, IconsPlugin } from 'bootstrap-vue'
-import 'bootstrap/dist/css/bootstrap.css'
-import 'bootstrap-vue/dist/bootstrap-vue.css'
 
-import Loading from 'vue-loading-overlay'
+
+
+import Loading from 'vue-loading-overlay'//Loading 導入
 import 'vue-loading-overlay/dist/vue-loading.css'
 Vue.component('Loading',Loading)
 
-Vue.use(BootstrapVue)
-Vue.use(IconsPlugin)
+import 'bootstrap'
+import 'bootstrap/dist/css/bootstrap.css'//Bootstrap導入
+
+import VueSweetalert2 from 'vue-sweetalert2';//sweetalert2導入
+import 'sweetalert2/dist/sweetalert2.min.css';
+Vue.use(VueSweetalert2)
 
 Vue.config.productionTip = false
 

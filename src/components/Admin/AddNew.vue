@@ -46,7 +46,8 @@
                     description: 'A delicious tomato based pizza topped with mozzarella',
                     category: '地球',
                     img: 'https://picsum.photos/1024/480/?image=42',
-                    price: '666'
+                    quantity:1,
+                    price: 500
                 }
             }
         },

@@ -1,6 +1,6 @@
 <template>
     <div class="featured container-fluid">
-        <div class="row mt-4 mx-auto">
+        <div class="row  mx-auto">
             <div class="col-12 col-md-6 col-lg-3 mb-4">
                 <div class="card">
                     <img src="https://picsum.photos/1024/480/?image=52" class="card-img-top" alt="...">
@@ -56,4 +56,7 @@
 </script>
 
 <style lang="scss" scoped>
+.featured{
+    background-color: #1f2833;
+}
 </style>
