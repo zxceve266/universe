@@ -17,6 +17,9 @@ const getters ={
 const mutations = {
     AddToCart:(state,item)=>{
         state.cartItem.push(item)
+    },
+    RemoveFromCart(state,index){
+        state.cartItem.splice(index,1)
     }
 }
 

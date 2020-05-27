@@ -1,5 +1,4 @@
 <template>
-    <div>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
             <router-link class="navbar-brand" :to="{name:'Home'}">宇宙探險</router-link>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -8,7 +7,7 @@
             </button>
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav w-100">
+                <ul class="navbar-nav w-100 text-center">
                     <li class="nav-item">
                         <router-link class="nav-link" :to="{name:'Home'}">首頁</router-link>
                     </li>
@@ -27,8 +26,8 @@
                     <li class="nav-item">
                         <router-link class="nav-link" :to="{name:'Admin'}">後台</router-link>
                     </li>
-                    <li class="nav-item dropdown ml-auto">
-                        <a class="nav-link dropdown-toggle cart" href="#" id="navbarDropdown" role="button"
+                    <li class="nav-item dropdown ml-auto d-none d-lg-block">
+                        <a class="nav-link dropdown-toggle cart" id="navbarDropdown" role="button"
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <i class="fas fa-shopping-cart"></i>
                             購物車
@@ -78,8 +77,6 @@
                 </ul>
             </div>
         </nav>
-    </div>
-
 </template>
 
 <script>

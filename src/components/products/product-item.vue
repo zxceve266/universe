@@ -1,15 +1,20 @@
 <template>
-    <div class="container-fluid">
+    <div class="product-item container-fluid">
+        <h2 class="mb-4 text-center text-dark">{{category}}</h2>
         <div class="row">
-            <div v-for="item in setProducts" :key="item.id" class="col-12 col-md-6 col-lg-4 mb-4">
+            <div v-for="item in setProducts" :key="item.id" class="col-12 col-md-6 col-lg-4 mb-4  ">
                 <div class="card">
-                    <img :src="item.img" class="card-img-top" alt="...">
+                    <div class="cart-img">
+                        <img :src="item.img" class="" alt="...">
+                    </div>
                     <div class="card-body">
-                        <span >{{item.category}}</span>
-                        <h5 class="card-title">{{item.name}}</h5>
+                        <h5 class="card-title d-flex justify-content-between">
+                            {{item.name}}
+                            <span class="badge badge-pill badge-info">{{item.category}}</span>
+                        </h5>
                         <p class="card-text">{{item.description}}</p>
                         <p class="card-text price">${{item.price}}</p>
-                        <div class="d-flex justify-content-between w-100">
+                        <div class="d-flex flex-column flex-md-row justify-content-between w-100">
                             <router-link 
                             :to="`/products/${item.id}/info`" 
                             class="btn btn-outline-primary"
@@ -17,7 +22,7 @@
                             <i class="fas fa-search-dollar"></i>
                             觀看詳情
                             </router-link>
-                            <button class="btn btn-danger" @click="addToCart(item)">
+                            <button class="btn btn-danger mt-2 mt-md-0" @click="addToCart(item)">
                                 <i class="fas fa-cart-arrow-down"></i> 馬上下單</button>
                         </div>
                     </div>
@@ -41,16 +46,50 @@ import{ setProductCategories } from '../../category'
         methods:{
             addToCart(item){
                 this.$store.commit('AddToCart',item)
-                this.$swal("以加入購物車",'幹的好','success')
+                this.$swal("以加入購物車",'','success')
             }
         }
     }
 </script>
 
-<style>
+
+
+<style lang="scss">
+    .product-item{
+        .card-body{
+            // background-color: #1f2833;
+        }
+    }
+
     .price{
         font-size: 20px;
         color: #eb4d4b;
         font-weight: bold;
+    }
+    .category-tag{
+        background-color: #66fcf1;
+        color: #fff;
+        padding: 2px 6px;
+        border-radius: 20px;
+        display: inline-block;
+    }
+    .cart-img{
+        height: 200px;
+        overflow: hidden;
+        
+        img{
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transform: scale(1);
+            transition: 0.7s all ease-in-out;
+            
+        }
+    }
+
+    .card{
+        &:hover img{
+            transform: scale(1.2);
+        }
     }
 </style>

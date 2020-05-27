@@ -1,23 +1,20 @@
 <template>
   <div id="app">
-    <Navbar/>
-    <router-view class="pt-4 mt-4"/>
-    <Footer/>
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
-import Navbar from './views/Navbar'
-import Footer from './views/Footer'
+
   export default {
-    components:{
-      Navbar,
-      Footer,
-    },
-    created(){
-      this.$store.commit('ToggleLoading')
-      this.$store.dispatch('setProdcutsRef')
-    }
+    // components:{
+    //   Navbar,
+    //   Footer,
+    // },
+    // created(){
+    //   this.$store.commit('ToggleLoading')
+    //   this.$store.dispatch('setProdcutsRef')
+    // }
   }
 </script>
 
@@ -32,5 +29,6 @@ import Footer from './views/Footer'
 .space{
   margin-top: 60px;
 }
+
 
 </style>

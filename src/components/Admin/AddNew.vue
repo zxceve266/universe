@@ -1,5 +1,5 @@
 <template>
-    <form class="my-4">
+    <form class="my-4 container">
         <div class="form-group">
             <label for="product-name">產品名稱</label>
             <input type="text" class="form-control" id="product-name" aria-describedby="product-name" placeholder="產品名稱"
@@ -7,15 +7,19 @@
             <small id="product-name" class="form-text text-muted">請輸入新產品名稱</small>
         </div>
         <div class="form-group">
-            <label for="description">描述介紹</label>
+            <label for="description">介紹</label>
             <textarea class="form-control" v-model="newProduct.description" type="text" id="description"></textarea>
+        </div>
+        <div class="form-group">
+            <label for="detail">詳細內容</label>
+            <textarea class="form-control" v-model="newProduct.detail" type="text" id="detail"></textarea>
         </div>
         <div class="form-group">
             <label for="category">設定分類</label>
             <select class="form-control" id="category" v-model="newProduct.category">
                 <option>太空</option>
                 <option>地球</option>
-                <option>火星</option>
+                <option>火箭</option>
                 <option>黑洞</option>
                 <option>流星</option>
                 <option>月球</option>
@@ -44,6 +48,7 @@
                 newProduct: {
                     name: '測試',
                     description: 'A delicious tomato based pizza topped with mozzarella',
+                    detail: 'A delicious tomato based pizza topped with mozzarella',
                     category: '地球',
                     img: 'https://picsum.photos/1024/480/?image=42',
                     quantity:1,
