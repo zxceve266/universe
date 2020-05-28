@@ -1,18 +1,21 @@
 <template>
-    <div>
+    <div class="universe">
         <Navbar />
         <router-view class="pt-4 mt-4" />
         <Footer />
+        <CartIcon/>
     </div>
 </template>
 
 <script>
     import Navbar from '../views/Navbar'
     import Footer from '../views/Footer'
+    import CartIcon from '../components/Universe/CartIcon'
     export default {
         components: {
             Navbar,
             Footer,
+            CartIcon
         },
         created() {
             this.$store.commit('ToggleLoading')
@@ -23,5 +26,7 @@
 
 
 <style>
-
+.universe{
+    position: relative;
+}
 </style>
