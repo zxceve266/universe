@@ -26,7 +26,10 @@
                     <li class="nav-item">
                         <router-link class="nav-link" :to="{name:'Admin'}">後台</router-link>
                     </li>
-                    <li class="nav-item dropdown ml-auto d-none d-lg-block">
+                    <li class="nav-item ml-auto">
+                        <router-link class="nav-link" :to="{name:'User'}">登入</router-link>
+                    </li>
+                    <li class="nav-item dropdown  d-none d-lg-block">
                         <a class="nav-link dropdown-toggle cart" id="navbarDropdown" role="button"
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <i class="fas fa-shopping-cart"></i>

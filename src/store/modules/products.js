@@ -2,12 +2,11 @@ import { firestoreAction } from 'vuexfire'
 import { dbProductsRef } from '../../firebase' //導入資料庫方法
 
 const state = {
-    products:[]
+    products:[],
 }
 
 const getters = {
     products:(state)=> state.products,
-
     findItem:(state)=>{
         return (id)=>{
             let pickItem = state.products.filter((item)=>{

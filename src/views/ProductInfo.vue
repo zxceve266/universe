@@ -46,11 +46,11 @@ export default {
     },
     beforeRouteEnter (to, from, next) {//進來前先改變info狀態 因為beforeEnter無法收到this 所以用Vm代替this 
         next(vm => {
-            vm.$store.commit('ToggleInfo',vm.getItem)//送回選中商品
+            vm.$store.commit('ToggleInfo')//送回選中商品
         })
     },
     beforeRouteLeave(to, from, next) {//離開後改變info狀態
-        this.$store.commit('ToggleInfo','')//離開後將選中名字變為空字串
+        this.$store.commit('ToggleInfo')//離開後將選中名字變為空字串
         next()
     },
     methods:{
@@ -58,7 +58,10 @@ export default {
             this.$store.commit('AddToCart',item)
             this.$swal("以加入購物車",'','success')
         }
-    }
+    },
+    // updated(){
+    //     this.$store.commit('FindItem',this.$route.params.id)
+    // }
 }
 </script>
 

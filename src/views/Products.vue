@@ -4,10 +4,8 @@
       <ol class="breadcrumb">
         <li class="breadcrumb-item"><router-link :to="{name:'Home'}">首頁</router-link></li>
         <li class="breadcrumb-item"><router-link :to="{name:'Products'}">產品</router-link></li>
-        <li class="breadcrumb-item active" aria-current="page" v-if="!isInfo">{{currentCategory}}</li>
         <template v-if="isInfo">
-          <li class="breadcrumb-item active" aria-current="page">{{isInfo.category}}</li>
-          <li class="breadcrumb-item active" aria-current="page">{{isInfo.name}}</li>
+        <li class="breadcrumb-item active" aria-current="page" v-if="!isInfo">{{currentCategory}}</li>
         </template>
       </ol>
     </nav>
