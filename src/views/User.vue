@@ -21,9 +21,10 @@
         </form>
         <div class="container text-center" v-else>
             <h2>歡迎 {{currentUser}}</h2>
-            <p>可以繼續逛商城，或是去 <router-link :to="{name:'Admin'}">管理員介面</router-link></p>
+            <p>可以繼續 <router-link :to="{name:'Products'}">逛商城</router-link>，或是去 <router-link :to="{name:'Admin'}">管理員介面</router-link></p>
             <button type="submit" class="btn btn-danger" @click.prevent="signOut">登出</button>
         </div>
+        <loading :active.sync="isLoading"></loading>
     </div>
 </template>
 
@@ -39,7 +40,10 @@
             }
         },
         computed: {
-            ...mapGetters(['currentUser'])
+            ...mapGetters([
+                'currentUser',
+                'isLoading'
+            ])
         },
         methods: {
             signIn() {

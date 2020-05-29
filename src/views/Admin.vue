@@ -1,14 +1,17 @@
 <template>
-    <div class="container">
-        <AddNew/>
+    <div class="d-flex">
+        <SideNav/>
+        <router-view class="vh-100"/>
+        <!-- <loading :active.sync="isLoading"></loading> -->
     </div>
 </template>
 
 <script>
-import AddNew from '../components/Admin/AddNew'
+// import AddNew from '../components/Admin/AddNew'
+import SideNav from '../components/Admin/SideNav'
     export default {
         components:{
-            AddNew,
+            SideNav
         }
     }
 </script>

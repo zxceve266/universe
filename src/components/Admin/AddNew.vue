@@ -1,5 +1,6 @@
 <template>
     <form class="my-4 container">
+        <h2 class="text-center">新增商品</h2>
         <div class="form-group">
             <label for="product-name">產品名稱</label>
             <input type="text" class="form-control" id="product-name" aria-describedby="product-name" placeholder="產品名稱"

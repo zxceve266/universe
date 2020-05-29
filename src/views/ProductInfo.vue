@@ -1,6 +1,6 @@
 <template>
-    <div class="info container mt-5">
-        <div class="row w-100 text-center">
+    <div class="info container mt-5 justify-content-center">
+        <div class="row w-100 text-center ">
             <div class="col-12 col-md-6">
                 <img :src="getItem.img" class="info-img" alt="Responsive image">
             </div>
@@ -15,7 +15,7 @@
                     <span>5</span>
                     <span class="green-btn">&#43;</span>
                 </div>
-                <h2 class="text-danger">${{getItem.price}}</h2>
+                <h2 class="text-danger mt-4">${{getItem.price}}</h2>
                 <button class="btn btn-danger" @click="addToCart(getItem)">
                     <i class="fas fa-cart-arrow-down"></i>
                     加入購物車

@@ -23,11 +23,11 @@
                     <li class="nav-item">
                         <router-link class="nav-link" :to="{name:'About'}">關於</router-link>
                     </li>
-                    <li class="nav-item">
+                    <!-- <li class="nav-item">
                         <router-link class="nav-link" :to="{name:'Admin'}">後台</router-link>
-                    </li>
+                    </li> -->
                     <li class="nav-item ml-auto">
-                        <router-link class="nav-link" :to="{name:'User'}">登入</router-link>
+                        <router-link class="nav-link" :to="{name:'User'}">{{isUser}}</router-link>
                     </li>
                     <li class="nav-item dropdown  d-none d-lg-block">
                         <a class="nav-link dropdown-toggle cart" id="navbarDropdown" role="button"
@@ -91,8 +91,16 @@
             ...mapGetters([
                 'cartItemNumber',
                 'cartItem',
-                'cartTotal'
-            ])
+                'cartTotal',
+                'currentUser'
+            ]),
+            isUser(){
+                if(this.currentUser){
+                    return this.currentUser
+                }else{
+                    return '登入'
+                }
+            }
         }
     }
 </script>

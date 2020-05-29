@@ -10,10 +10,11 @@ Vue.use(VueRouter)
   {
     path: '/',
     name: 'Universe',
+    redirect:'home',
     component: Universe,
     children:[
       {
-        path: '/home',
+        path: 'home',
         name: 'Home',
         component: () => import('../views/Home.vue')
       },
@@ -69,13 +70,26 @@ Vue.use(VueRouter)
   },
   
   {
-    path: '/Admin',
+    path: '/admin',
     name: 'Admin',
-    component: () => import('../views/Admin.vue')
+    component: () => import('../views/Admin.vue'),
+    children:[
+      {
+        path:'addnew',
+        name:'AddNew',
+        component:()=>import('../components/Admin/AddNew.vue')
+      },
+      {
+        path:'productmgt',
+        name:'ProductMgt',
+        component:()=>import('../components/Admin/ProductMgt.vue')
+      },
+    ]
+
   },
   {
     path:'*',
-    redirect:'/'
+    redirect:'/home'
   }
 
 ]

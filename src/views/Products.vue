@@ -19,7 +19,7 @@
       </div>
     </div>
 
-    <loading :active.sync="isLoading"></loading>
+    
   </div>
 </template>
 
@@ -42,7 +42,6 @@
     },
     computed: {
       ...mapGetters([
-        'isLoading',
         'isInfo',//選中商品的名子
         'products',
       ]),

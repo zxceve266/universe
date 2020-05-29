@@ -34,6 +34,14 @@ const actions ={
             alert(`sorry 發生一些錯誤 請再試一次! ${error}`)
         }
     },
+    removeProduct:async(context,id)=>{
+        try{
+            const item = await dbProductsRef.doc(id)
+            item.delete()
+        }catch(error){
+            alert(`sorry 發生一些錯誤 請再試一次! ${error}`)
+        }
+    }
 }
 
 export default {

@@ -1,0 +1,83 @@
+<template>
+    <div class="container">
+        <h2 class="text-center mt-4">管理商品</h2>
+        <table class="table">
+            <thead class="thead-dark">
+                <tr class="text-center">
+                    <th scope="col">商品名稱</th>
+                    <th scope="col">商品類別</th>
+                    <th scope="col">商品價格</th>
+                    <th scope="col">編輯商品</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="text-center"
+                v-for="item in products"
+                :key="item.id"
+                >
+                    <td class="font-weight-bold">{{item.name}}</td>
+                    <td>{{item.category}}</td>
+                    <td>{{item.price}}</td>
+                    <td>
+                        <button class="btn btn-danger" @click="removeProduct(item.id)">刪除</button>
+                        <button class="btn btn-success" @click="editProduct">編輯</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+</template>
+
+<script>
+import { mapGetters } from 'vuex'
+    export default {
+        computed:{
+            ...mapGetters([
+                'products'
+            ])
+        },
+        methods:{
+            editProduct(){
+                
+            },
+            removeProduct(id){
+                let that = this
+                that.$swal({
+                    title: '確定刪除嗎?',
+                    text: '一但刪除，資料就無法復原了',
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: '確定刪除！',
+                }).then(function (e) {
+                    if(e.isConfirmed){
+                        that.$store.dispatch('removeProduct',id)
+                        that.$swal(
+                            '刪除！',
+                            '你的資料已經被刪除了',
+                            'success'
+                        );
+                    }else{
+                        that.$swal(
+                            '已取消！',
+                            '',
+                            'error'
+                        );
+                    }
+                })
+
+                
+            }
+        }
+    }
+</script>
+
+<style lang="scss" scoped>
+    tr{
+        td{
+            vertical-align: middle;
+        }
+    }
+</style>

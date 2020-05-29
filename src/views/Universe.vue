@@ -1,7 +1,7 @@
 <template>
     <div class="universe">
         <Navbar />
-        <router-view class="pt-4 mt-4" />
+        <router-view class="pt-4 mt-4"/>
         <Footer />
         <CartIcon/>
     </div>
@@ -17,10 +17,6 @@
             Footer,
             CartIcon
         },
-        created() {
-            this.$store.commit('ToggleLoading')
-            this.$store.dispatch('setProdcutsRef')
-        }
     }
 </script>
 
