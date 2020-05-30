@@ -26,7 +26,7 @@
                     <!-- <li class="nav-item">
                         <router-link class="nav-link" :to="{name:'Admin'}">後台</router-link>
                     </li> -->
-                    <li class="nav-item ml-auto">
+                    <li class="nav-item ml-lg-auto">
                         <router-link class="nav-link" :to="{name:'User'}">{{isUser}}</router-link>
                     </li>
                     <li class="nav-item dropdown  d-none d-lg-block">
@@ -67,7 +67,7 @@
                                     <div class="col-5">總共: <span class="text-danger">NT {{cartTotal}}</span></div>
                                 </div>
                                     <router-link class="btn btn-info d-block"
-                                    :to="{name:'CheckOut'}">結帳去
+                                    :to="{name:'Confirm'}">結帳去
                                     </router-link>
                                     
                             </div>
@@ -120,13 +120,13 @@
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
-            width: 25px;
-            height: 25px;
+            width: 30px;
+            height: 30px;
             border-radius: 50%;
             background-color: red;
             font-size: 16px;
             text-align: center;
-            line-height: 25px;
+            line-height: 30px;
             color: #fff;
             font-style: normal;
         }

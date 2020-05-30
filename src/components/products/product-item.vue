@@ -5,7 +5,7 @@
             <div v-for="item in setProducts" :key="item.id" class="col-12 col-md-6 col-lg-4 mb-4  ">
                 <div class="card">
                     <div class="cart-img">
-                        <img :src="item.img" class="" alt="...">
+                        <img :src="item.img" class="img-item" alt="...">
                     </div>
                     <div class="card-body">
                         <h5 class="card-title d-flex justify-content-between">
@@ -77,7 +77,7 @@ import{ setProductCategories } from '../../category'
         height: 200px;
         overflow: hidden;
         
-        img{
+        .img-item{
             width: 100%;
             height: 100%;
             object-fit: cover;
@@ -88,7 +88,7 @@ import{ setProductCategories } from '../../category'
     }
 
     .card{
-        &:hover img{
+        &:hover .img-item{
             transform: scale(1.2);
         }
     }

@@ -17,7 +17,7 @@
         },methods:{
             goToCheck(){
                 if(this.cartItemNumber !== 0){
-                    this.$router.push({name:'CheckOut'})
+                    this.$router.push({name:'Confirm'})
                 }else{
                     return
                 }
@@ -41,10 +41,6 @@
         &:hover{
             box-shadow: 0 0 25px 6px #ff7979;
             transform: scale(0.9);
-        }
-        &:active{
-            box-shadow: 0 0 25px 6px #ff7979;
-            
         }
         i{
             font-size: 5vh;

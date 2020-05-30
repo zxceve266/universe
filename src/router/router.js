@@ -28,6 +28,7 @@ Vue.use(VueRouter)
             name: 'Info',
             component: Info
           },
+         
         ]
         
       },
@@ -55,7 +56,20 @@ Vue.use(VueRouter)
         // route level code-splitting
         // this generates a separate chunk (about.[hash].js) for this route
         // which is lazy-loaded when the route is visited.
-        component: () => import(/* webpackChunkName: "about" */ '../views/CheckOut.vue')
+        component: () => import(/* webpackChunkName: "check" */ '../views/CheckOut.vue'),
+        children:[
+          {
+            path:'confrim',
+            name:'Confirm',
+            component: () => import(/* webpackChunkName: "check" */ '../components/CheckOut/Confirm.vue'),
+          },
+          {
+            path: 'fill',
+            name: 'Fill',
+            component:() => import(/* webpackChunkName: "check" */ '../components/CheckOut/Fill.vue'),
+          },
+        ]
+
       },
       {
         path: 'signin',
@@ -72,17 +86,17 @@ Vue.use(VueRouter)
   {
     path: '/admin',
     name: 'Admin',
-    component: () => import('../views/Admin.vue'),
+    component: () => import(/* webpackChunkName: "admin" */ '../views/Admin.vue'),
     children:[
       {
         path:'addnew',
         name:'AddNew',
-        component:()=>import('../components/Admin/AddNew.vue')
+        component:()=>import(/* webpackChunkName: "admin" */'../components/Admin/AddNew.vue')
       },
       {
         path:'productmgt',
         name:'ProductMgt',
-        component:()=>import('../components/Admin/ProductMgt.vue')
+        component:()=>import(/* webpackChunkName: "admin" */'../components/Admin/ProductMgt.vue')
       },
     ]
 

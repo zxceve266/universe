@@ -19,8 +19,14 @@
                     <td>{{item.category}}</td>
                     <td>{{item.price}}</td>
                     <td>
-                        <button class="btn btn-danger" @click="removeProduct(item.id)">刪除</button>
-                        <button class="btn btn-success" @click="editProduct">編輯</button>
+                        <button class="btn btn-danger" @click="removeProduct(item.id)">
+                            <i class="fas fa-trash-alt"></i>
+                            刪除
+                        </button>
+                        <button class="btn btn-success" @click="editProduct">
+                            <i class="far fa-edit"></i>
+                            編輯
+                        </button>
                     </td>
                 </tr>
             </tbody>

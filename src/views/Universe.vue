@@ -1,5 +1,5 @@
 <template>
-    <div class="universe">
+    <div class="universe overflow-hidden">
         <Navbar />
         <router-view class="pt-4 mt-4"/>
         <Footer />
