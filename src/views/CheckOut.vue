@@ -2,19 +2,19 @@
     <div class="check-out container">
         <template v-if="cartItemNumber > 0">
             <section class="container mt-5">
-                <div class="procedure row justify-content-between flex-column flex-sm-row align-items-center">
+                <div class="procedure row justify-content-between  align-items-center">
                     <div class="procedure-icon ">
-                        <p style="font-size:20px">1</p>
+                        <p class="pro-num">1</p>
                         <img src="../assets/planet-w.png" alt="">
                         <p>確認訂單</p>
                     </div>
                     <div class="procedure-icon ">
-                        <p style="font-size:20px">2</p>
+                        <p  class="pro-num">2</p>
                         <img src="../assets/startup-w.png" alt="">
                         <p>填寫收件資料</p>
                     </div>
                     <div class="procedure-icon">
-                        <p style="font-size:20px">3</p>
+                        <p class="pro-num">3</p>
                         <img src="../assets/rocket-w.png" alt="">
                         <p>完成訂單</p>
                     </div>
@@ -59,7 +59,6 @@ import{ mapGetters } from 'vuex'
 .procedure{
     .procedure-icon{
         position: relative;
-        margin-top: 20px;
         width: 20vh;
         height: 20vh;
         padding: 5px;
@@ -70,14 +69,17 @@ import{ mapGetters } from 'vuex'
         img{
             width: 9vh;
             height: 9vh;
-            margin-top: -15px;
+            margin-top: -20px;
+        }
+        .pro-num{
+            font-size: 20px;
         }
         &::before{
             content: '';
             position: absolute;
             top: 50%;
             left: 98%;
-            height: 30px;
+            height: 20px;
             transform: translateY(-50%);
             width: 29vw;
             background-color:inherit;
@@ -92,5 +94,28 @@ import{ mapGetters } from 'vuex'
             }
         }
     }
+}
+@media(max-width: 768px){
+    .procedure{
+    .procedure-icon{
+        width: 14vh;
+        height: 14vh;
+        padding: 2px;
+        img{
+            width: 5vh;
+            height: 5vh;
+        }
+        p{
+            font-size: 12px;
+        }
+        .pro-num{
+            font-size: 12px;
+        }
+        &::before{
+            height: 12px;
+            width: 25vw;
+        }
+    }
+}
 }
 </style>

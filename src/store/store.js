@@ -4,6 +4,7 @@ import products from './modules/products'
 import Loading from './modules/isLoading'
 import cart from './modules/cart'
 import Authentication from './modules/Authentication'
+import order from './modules/order'
 
 import { vuexfireMutations } from 'vuexfire'
 
@@ -20,5 +21,6 @@ export default new Vuex.Store({
     Loading,
     cart,
     Authentication,
+    order
   }
 })

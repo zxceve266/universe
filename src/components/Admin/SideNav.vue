@@ -7,17 +7,24 @@
             <ul class="h-50 p-0 text-center">
                 <li>
                     <router-link :to="{name:'AddNew'}">
-                        新增商品
+                        <i class="fas fa-plus-square"></i> 新增商品
                     </router-link>
                 </li>
                 <li>
                     <router-link :to="{name:'ProductMgt'}">
+                        <i class="far fa-object-group"></i>
                         管理商品
                     </router-link>
                 </li>
-                <li>訂單管理</li>
+                <li>
+                    <router-link :to="{name:'Orders'}">
+                        <i class="far fa-folder-open"></i>
+                        訂單管理
+                    </router-link>
+                </li>
                 <li>
                     <router-link :to="{name:'Home'}">
+                        <i class="fas fa-rocket"></i>
                         返回商城
                     </router-link>
                 </li>

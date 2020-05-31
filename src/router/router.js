@@ -98,6 +98,11 @@ Vue.use(VueRouter)
         name:'ProductMgt',
         component:()=>import(/* webpackChunkName: "admin" */'../components/Admin/ProductMgt.vue')
       },
+      {
+        path:'orders',
+        name:'Orders',
+        component:()=>import(/* webpackChunkName: "admin" */'../components/Admin/Orders.vue')
+      },
     ]
 
   },

@@ -15,6 +15,7 @@ import { mapGetters } from 'vuex'
     },
     created(){
       this.$store.commit('ToggleLoading')
+      this.$store.dispatch('setOrderRef')
       this.$store.dispatch('setProdcutsRef').then(()=>{//讓Products資料同步
         this.$store.dispatch('checkUser')//檢查是否有登入狀態
       }) 

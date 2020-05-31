@@ -7,6 +7,7 @@ const state = {
 
 const getters = {
     products:(state)=> state.products,
+    
     findItem:(state)=>{
         return (id)=>{
             let pickItem = state.products.filter((item)=>{

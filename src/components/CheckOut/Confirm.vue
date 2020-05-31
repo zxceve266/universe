@@ -9,7 +9,7 @@
         </div>
         <section class="check-detail">
             <div class="row align-items-center px-md-5 border-top text-center" 
-            v-for="item in cartItem" :key="item.index">
+            v-for="(item, index) in cartItem" :key="index">
                 <div class="col-12 col-md-3">
                     <img :src="item.img" class="confirm-img img-fluid py-2" alt="">
                 </div>
@@ -21,7 +21,7 @@
                 </div>
                 <div class="col-4 col-md-2">總計:{{item.quantity * item.price}}</div>
                 <div class="col-4 col-md-1 text-center">
-                    <button class="btn btn-danger" @click="removeItem(item.index)">
+                    <button class="btn btn-danger" @click="removeItem(index)">
                         <i class="fas fa-trash-alt text-light"></i>
                     </button>
                 </div>
@@ -62,6 +62,7 @@ import{ mapGetters } from 'vuex'
         },
         methods:{
             removeItem(index){
+                console.log(index)
                 this.$store.commit('RemoveFromCart',index)
             }
         }

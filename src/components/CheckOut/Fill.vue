@@ -45,24 +45,32 @@
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <label for="userEmail">Email</label>
-                            <input type="email" class="form-control" id="userEmail" placeholder="請輸入電子郵件">
+                            <input type="email" class="form-control" 
+                            id="userEmail" placeholder="請輸入電子郵件"
+                            v-model="orderInfo.email"
+                            >
                         </div>
                         <div class="form-group col-md-6">
                             <label for="userName">收件人姓名</label>
-                            <input type="text" class="form-control" id="userName" placeholder="請輸入姓名">
+                            <input type="text" class="form-control" 
+                            id="userName" placeholder="請輸入姓名"
+                            v-model="orderInfo.name"
+                            >
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="userPhone">收件人手機</label>
-                        <input type="text" class="form-control" id="userPhone" placeholder="請輸入手機">
-                    </div>
-                    <div class="form-group">
-                        <label for="userPhone2">收件人電話</label>
-                        <input type="text" class="form-control" id="userPhone2" placeholder="請輸入電話">
+                        <input type="text" class="form-control" 
+                        id="userPhone" placeholder="請輸入手機"
+                        v-model="orderInfo.phone"
+                        >
                     </div>
                     <div class="form-group">
                         <label for="userAddress">收件人地址</label>
-                        <input type="text" class="form-control" id="userAddress" placeholder="請輸入地址">
+                        <input type="text" class="form-control" 
+                        id="userAddress" placeholder="請輸入地址"
+                        v-model="orderInfo.address"
+                        >
                     </div>
                     <fieldset class="form-group">
                         <div class="row">
@@ -93,7 +101,10 @@
                         </div>
                     </fieldset>
                     <div>
-                        <button type="submit" class="btn btn-primary text-right">送出訂單</button>
+                        <button class="btn btn-primary text-right" 
+                        @click.prevent="addNewOrders"
+                        >送出訂單
+                        </button>
                     </div>
                 </form>
             </section>
@@ -102,10 +113,18 @@
 </template>
 
 <script>
-    import {
-        mapGetters
-    } from 'vuex'
+    import {mapGetters} from 'vuex'
     export default {
+        data(){
+            return{
+                orderInfo:{
+                    email:'zzz@ccc.com',
+                    name:'王小民',
+                    phone:'0987091717',
+                    address:'宜蘭縣宜蘭市前端路123號',
+                }
+            }
+        },
         computed: {
             ...mapGetters([
                 'cartItemNumber',
@@ -113,6 +132,30 @@
                 'cartTotal'
             ])
         },
+        methods:{
+            addNewOrders(){
+                let date = new Date();
+                let year = date.getFullYear();
+                let month = date.getMonth();
+                let day = date.getUTCDate();
+                let hour = date.getHours();
+                let min = date.getMinutes();
+                let second = date.getSeconds();
+                let timeNow = `${year} 年 ${month} 月 ${day} 日 ${hour} 時  ${min} 分 ${second} 秒 `;
+
+                const orders ={
+                    order:{
+                        orderItem:[...this.cartItem],
+                        orderInfo:{...this.orderInfo},
+                        orderTime:timeNow
+                    },
+                    createdAt:new Date()
+                }
+                this.$store.dispatch('addNewOrder',orders).then(()=>{
+                    this.$swal("以發送訂單",'','success')
+                })
+            }
+        }
     }
 </script>
 
