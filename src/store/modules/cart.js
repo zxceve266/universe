@@ -1,5 +1,7 @@
+const cartData = JSON.parse(localStorage.getItem('cartData')) || []//設定初始購物車資料
+
 const state = {
-    cartItem:[]
+    cartItem: cartData
 }
 
 const getters ={
@@ -17,9 +19,11 @@ const getters ={
 const mutations = {
     AddToCart:(state,item)=>{
         state.cartItem.push(item)
+        localStorage.setItem('cartData', JSON.stringify(state.cartItem))
     },
     RemoveFromCart(state,index){
         state.cartItem.splice(index,1)
+        localStorage.setItem('cartData', JSON.stringify(state.cartItem))
     }
 }
 
