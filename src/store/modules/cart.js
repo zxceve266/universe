@@ -24,6 +24,10 @@ const mutations = {
     RemoveFromCart(state,index){
         state.cartItem.splice(index,1)
         localStorage.setItem('cartData', JSON.stringify(state.cartItem))
+    },
+    ClearCart(state){
+        state.cartItem = []
+        localStorage.clear();
     }
 }
 

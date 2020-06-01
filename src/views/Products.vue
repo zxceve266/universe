@@ -18,8 +18,6 @@
         <ProductItem :category="currentCategory" :products="products" />
       </div>
     </div>
-
-    
   </div>
 </template>
 
@@ -54,9 +52,6 @@
         this.currentCategory = item
       }
     },
-    created() {
-
-    }
   }
 </script>
 

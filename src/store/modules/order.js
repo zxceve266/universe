@@ -23,6 +23,7 @@ const actions={
         commit('ToggleLoading')
         try {
             await dbOrderRef.add(order)
+            commit('ClearCart')
             commit('ToggleLoading')
         } catch (error) {
             alert(`sorry 發生一些錯誤 請再試一次! ${error}`)

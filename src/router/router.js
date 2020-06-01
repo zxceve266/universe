@@ -68,6 +68,11 @@ Vue.use(VueRouter)
             name: 'Fill',
             component:() => import(/* webpackChunkName: "check" */ '../components/CheckOut/Fill.vue'),
           },
+          {
+            path: 'complete',
+            name: 'Complete',
+            component:() => import(/* webpackChunkName: "check" */ '../components/CheckOut/Complete.vue'),
+          },
         ]
 
       },

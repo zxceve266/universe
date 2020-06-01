@@ -2,7 +2,7 @@
     <div class="product-item container-fluid">
         <h2 class="mb-4 text-center text-dark">{{category}}</h2>
         <div class="row">
-            <div v-for="item in setProducts" :key="item.id" class="col-12 col-md-6 col-lg-4 mb-4  ">
+            <div v-for="item in setProducts[currentPage]" :key="item.id" class="col-12 col-md-6 col-lg-4 mb-4  ">
                 <div class="card">
                     <div class="cart-img">
                         <img :src="item.img" class="img-item" alt="...">
@@ -28,25 +28,43 @@
                     </div>
                 </div>
             </div>
+            <Pagination
+            :pagination="setProducts"
+            :currentPage="currentPage"
+            @goSetCurrentPage="setCurrentPage"
+            ></Pagination>
         </div>
     </div>
 </template>
 
 <script>
-import{ setProductCategories } from '../../category'
+import{ setProductPagination } from '../../category'
+import Pagination from './Pagination'
+
     export default {
+        data(){
+            return{
+                itemPerPage:6, //設定每一頁的產品數量
+                currentPage:0  //目前分頁
+            }
+        },
+        components:{
+            Pagination
+        },
         props:['category','products'],
         computed:{
             setProducts(){//用分類與原資料 來篩選出分類過的資料
-                let category = this.category
-                let products = this.products
-                return setProductCategories(category,products)
+                return setProductPagination(this.category,this.products,this.itemPerPage)
             }
         },
         methods:{
             addToCart(item){
                 this.$store.commit('AddToCart',item)
                 this.$swal("以加入購物車",'','success')
+            },
+            setCurrentPage(page){
+                console.log(page)
+                this.currentPage = page
             }
         }
     }
