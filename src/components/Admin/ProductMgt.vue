@@ -12,7 +12,7 @@
             </thead>
             <tbody>
                 <tr class="text-center"
-                v-for="item in products"
+                v-for="item in setPaginationItem[currentPage]"
                 :key="item.id"
                 >
                     <td class="font-weight-bold">{{item.name}}</td>
@@ -31,17 +31,45 @@
                 </tr>
             </tbody>
         </table>
-
+        <Pagination
+            :pagination="setPaginationItem"
+            :currentPage="currentPage"
+            @goSetCurrentPage="setCurrentPage"
+        >
+        </Pagination>
     </div>
 </template>
 
 <script>
 import { mapGetters } from 'vuex'
+import Pagination from '../Pagination'
     export default {
+         data(){
+            return{
+                itemPerPage:7, //設定每一頁的訂單數量
+                currentPage:0  //目前分頁
+            }
+        },
+        components:{
+            Pagination
+        },
         computed:{
             ...mapGetters([
                 'products'
-            ])
+            ]),
+            setPaginationItem (){
+                let perPage = this.itemPerPage
+                const paginationData = []
+                let products = [...this.products]
+                products.forEach(function(item,index){
+                    if(index % perPage === 0 ){
+                        paginationData.push([])
+                    }
+                    const page = parseInt(index / perPage , 10)
+                    paginationData[page].push(item)
+                })
+                return paginationData
+            }
         },
         methods:{
             editProduct(){
@@ -75,6 +103,9 @@ import { mapGetters } from 'vuex'
                 })
 
                 
+            },
+            setCurrentPage(page){
+                this.currentPage = page
             }
         }
     }

@@ -27,7 +27,7 @@ import SideNav from '../components/Admin/SideNav'
 </script>
 
 <style lang="scss">
-     .toggle-btn {
+    .toggle-btn {
         position: fixed;
         top: 50%;
         left: 0;
@@ -52,6 +52,7 @@ import SideNav from '../components/Admin/SideNav'
         .admin-sideNav{
             overflow: hidden;
             position: fixed;
+             z-index: 99;
             width: 0;
             &.active{
                 width:50vw;

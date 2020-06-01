@@ -39,7 +39,7 @@
 
 <script>
 import{ setProductPagination } from '../../category'
-import Pagination from './Pagination'
+import Pagination from '../Pagination'
 
     export default {
         data(){

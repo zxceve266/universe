@@ -58,7 +58,6 @@ const actions = {
             if(user){
                 commit('userStatus', user)
             }
-            console.log(user)
         } catch (error) {
             alert(error)
         }

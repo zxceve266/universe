@@ -11,9 +11,9 @@
                 </tr>
             </thead>
             <tbody>
-                <tr class="text-center" v-for="item in orders" :key="item.id">
+                <tr class="text-center" v-for="item in setPaginationItem[currentPage]" :key="item.id">
                     <td class="font-weight-bold">{{item.order.orderTime}}</td>
-                    <td class="font-weight-bold">{{item.id}}</td>
+                    <td>{{item.id}}</td>
                     <td>已付款</td>
                     <td>
                         <button class="btn btn-success">
@@ -24,18 +24,51 @@
                 </tr>
             </tbody>
         </table>
-
+        <Pagination
+            :pagination="setPaginationItem"
+            :currentPage="currentPage"
+            @goSetCurrentPage="setCurrentPage"
+        >
+        </Pagination>
     </div>
 </template>
 
 <script>
 import { mapGetters } from 'vuex'
+import Pagination from '../Pagination'
     export default {
+        data(){
+            return{
+                itemPerPage:7, //設定每一頁的訂單數量
+                currentPage:0  //目前分頁
+            }
+        },
+        components:{
+            Pagination
+        },
         computed:{
             ...mapGetters([
                 'orders',
                 'orderNumber'
-            ])
+            ]),
+            setPaginationItem (){
+                let perPage = this.itemPerPage
+                const paginationData = []
+                let orders = [...this.orders]
+                orders.forEach(function(item,index){
+                    if(index % perPage === 0 ){
+                        paginationData.push([])
+                    }
+                    const page = parseInt(index / perPage , 10)
+                    paginationData[page].push(item)
+                })
+                return paginationData
+            }
+        },
+        methods:{
+            setCurrentPage(page){
+                this.currentPage = page
+            }
         }
     }
 </script>
