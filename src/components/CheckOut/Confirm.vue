@@ -11,15 +11,15 @@
             <div class="row align-items-center px-md-5 border-top text-center" 
             v-for="(item, index) in cartItem" :key="index">
                 <div class="col-12 col-md-3">
-                    <img :src="item.img" class="confirm-img img-fluid py-2" alt="">
+                    <img :src="item.newProduct.img" class="confirm-img img-fluid py-2" alt="">
                 </div>
                 <div class="col-12 col-md-3">
-                    <h4>{{item.name}}</h4>
+                    <h4>{{item.newProduct.name}}</h4>
                 </div>
                 <div class="col-4 col-md-2 align-items-center text-left">
-                    <p>數量:{{item.quantity}}<br>單價:{{item.price}}</p>
+                    <p>數量:{{item.newProduct.quantity}}<br>單價:{{item.price}}</p>
                 </div>
-                <div class="col-4 col-md-2">總計:{{item.quantity * item.price}}</div>
+                <div class="col-4 col-md-2">總計:{{item.newProduct.quantity * item.newProduct.price}}</div>
                 <div class="col-4 col-md-1 text-center">
                     <button class="btn btn-danger" @click="removeItem(index)">
                         <i class="fas fa-trash-alt text-light"></i>

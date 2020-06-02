@@ -1,7 +1,7 @@
 export const parseProductCategories = (products) => { //根據原資料Category Key 返回出所有Category
     const categories = {};
     products.forEach((product) => {
-        categories[product.category] = product.category;
+        categories[product.newProduct.category] = product.newProduct.category;
     });
     return Object.keys(categories);
 }
@@ -12,7 +12,7 @@ export let setProductPagination = (currentCategory, products, itemPerPage) => {
 
     // 若是有選中分類(無選中全部)，將產品根據分類過濾出來
     if (currentCategory !== '全部') {
-        filteredProducts = products.filter(product => product.category === currentCategory);
+        filteredProducts = products.filter(product => product.newProduct.category === currentCategory);
     }
 
     // 製作分頁

@@ -18,17 +18,17 @@
                             <div class="row align-items-center px-2 text-center" v-for="item in cartItem"
                                 :key="item.index">
                                 <div class="col-3">
-                                    <img :src="item.img" class="py-1 fill-img" alt="">
+                                    <img :src="item.newProduct.img" class="py-1 fill-img" alt="">
                                 </div>
                                 <div class="col-3">
-                                    <h6>{{item.name}}</h6>
+                                    <h6>{{item.newProduct.name}}</h6>
                                 </div>
                                 <div class="col-3 ">
-                                    <p>數量:{{item.quantity}}</p>
+                                    <p>數量:{{item.newProduct.quantity}}</p>
                                 </div>
                                 <div class="col-3 ">
                                     總計:
-                                    <p>{{item.quantity * item.price}}</p>
+                                    <p>{{item.newProduct.quantity * item.newProduct.price}}</p>
                                 </div>
                             </div>
                             <div class="mt-2 p-2 text-right border-top">

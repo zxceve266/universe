@@ -20,9 +20,8 @@
             <select class="form-control" id="category" v-model="newProduct.category">
                 <option>太空</option>
                 <option>地球</option>
+                <option>火星</option>
                 <option>火箭</option>
-                <option>黑洞</option>
-                <option>流星</option>
                 <option>月球</option>
             </select>
         </div>
@@ -60,7 +59,11 @@
         computed: {},
         methods: {
             AddNewProduct() {
-                this.$store.dispatch('addNewProduct', this.newProduct)
+                const newProduct={
+                    newProduct:this.newProduct,
+                    createdAt:new Date()
+                }
+                this.$store.dispatch('addNewProduct', newProduct)
             }
         }
     }

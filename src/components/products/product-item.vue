@@ -1,19 +1,26 @@
 <template>
-    <div class="product-item container-fluid">
-        <h2 class="mb-4 text-center text-dark">{{category}}</h2>
+    <div class="product-item container">
+        <h2 class="mb-4 text-center text-dark">{{currentCategory}}</h2>
+        <label for="category">設定每頁顯示商品數量</label>
+        <select class="form-control w-25" id="category" @change="chengePerItem($event)">
+            <option>6</option>
+            <option>3</option>
+            <option>9</option>
+        </select>
+        <h3 class="text-right">共{{setProdcutsNum}}筆商品</h3>
         <div class="row">
-            <div v-for="item in setProducts[currentPage]" :key="item.id" class="col-12 col-md-6 col-lg-4 mb-4  ">
+            <div v-for="item in setProductPagination[currentPage]" :key="item.id" class="col-12 col-md-6 col-lg-4 mb-4  ">
                 <div class="card">
                     <div class="cart-img">
-                        <img :src="item.img" class="img-item" alt="...">
+                        <img :src="item.newProduct.img" class="img-item" alt="...">
                     </div>
                     <div class="card-body">
                         <h5 class="card-title d-flex justify-content-between">
-                            {{item.name}}
-                            <span class="badge badge-pill badge-info">{{item.category}}</span>
+                            {{item.newProduct.name}}
+                            <span class="badge badge-pill badge-info">{{item.newProduct.category}}</span>
                         </h5>
-                        <p class="card-text description">{{item.description}}</p>
-                        <p class="card-text price">${{item.price}}</p>
+                        <p class="card-text description">{{item.newProduct.description}}</p>
+                        <p class="card-text price">${{item.newProduct.price}}</p>
                         <div class="d-flex flex-column flex-md-row justify-content-between w-100">
                             <router-link 
                             :to="`/products/${item.id}/info`" 
@@ -29,7 +36,7 @@
                 </div>
             </div>
             <Pagination
-            :pagination="setProducts"
+            :pagination="setProductPagination"
             :currentPage="currentPage"
             @goSetCurrentPage="setCurrentPage"
             ></Pagination>
@@ -38,24 +45,20 @@
 </template>
 
 <script>
-import{ setProductPagination } from '../../category'
 import Pagination from '../Pagination'
-
+import{ mapGetters } from 'vuex'
     export default {
-        data(){
-            return{
-                itemPerPage:6, //設定每一頁的產品數量
-                currentPage:0  //目前分頁
-            }
-        },
         components:{
             Pagination
         },
-        props:['category','products'],
         computed:{
-            setProducts(){//用分類與原資料 來篩選出分類過的資料
-                return setProductPagination(this.category,this.products,this.itemPerPage)
-            }
+            ...mapGetters([
+                'currentCategory',
+                'setProductPagination',
+                'itemPerPage',
+                'currentPage',
+                'setProdcutsNum'
+            ]),
         },
         methods:{
             addToCart(item){
@@ -63,8 +66,12 @@ import Pagination from '../Pagination'
                 this.$swal("以加入購物車",'','success')
             },
             setCurrentPage(page){
-                console.log(page)
-                this.currentPage = page
+                this.$store.commit('setCurrentPage',page)
+            },
+            chengePerItem(event){
+                let value = event.target.value
+                console.log(value)
+                this.$store.commit('setItemPerPage',value)
             }
         }
     }
@@ -92,7 +99,7 @@ import Pagination from '../Pagination'
         display: inline-block;
     }
     .cart-img{
-        height: 200px;
+        height: 250px;
         overflow: hidden;
         
         .img-item{

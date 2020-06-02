@@ -66,7 +66,7 @@ import Pagination from '../Pagination'
                         paginationData.push([])
                     }
                     const page = parseInt(index / perPage , 10)
-                    paginationData[page].push(item)
+                    paginationData[page].push(item.newProduct)
                 })
                 return paginationData
             }
