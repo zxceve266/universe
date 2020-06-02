@@ -2,6 +2,8 @@
   <div class="home">
     <Banner />
     <Content/>
+    <Content2/>
+  
     <!-- <Featured /> -->
     <!-- <section class="section-title">
       <h2>太空之旅</h2>
@@ -14,6 +16,7 @@
   import Banner from '../components/Home/Banner'
   // import Featured from '../components/Home/Featured'
   import Content from '../components/Home/Content'
+  import Content2 from '../components/Home/Content2'
   // import Htravel from '../components/Home/H-travel'
   export default {
     name: 'Home',
@@ -21,6 +24,7 @@
       Banner,
       // Featured,
       Content,
+      Content2,
       // Htravel,
     }
   }

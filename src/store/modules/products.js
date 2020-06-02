@@ -29,8 +29,10 @@ const actions ={
     }),
 
     addNewProduct:async(context,payload)=>{
+        context.commit('ToggleLoading')
         try {
             await dbProductsRef.add(payload)
+            context.commit('ToggleLoading')
         } catch (error) {
             alert(`sorry 發生一些錯誤 請再試一次! ${error}`)
         }

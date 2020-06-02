@@ -1,6 +1,6 @@
 <template>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-            <router-link class="navbar-brand" :to="{name:'Home'}">宇宙探險</router-link>
+            <router-link class="navbar-brand" :to="{name:'Home'}">Space Empire</router-link>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -110,8 +110,12 @@
     .navbar-nav a {
         font-size: 20px;
         margin: 0 10px;
+
     }
 
+    .navbar-brand{
+        font-family: 'Oswald', sans-serif;
+    }
 
 
     .cart {

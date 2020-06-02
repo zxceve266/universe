@@ -1,7 +1,7 @@
 <template>
    <div class="banner">
-      <h1>來一場太空之旅吧</h1>
-      <em>That's one small step for man, one giant leap for mankind.</em>
+      <h1 class="mb-5">來一場太空之旅吧</h1>
+      <em class="banner-subText">That's one small step for man, one giant leap for mankind.</em>
       <button class="banner-btn">開始探索</button>
    </div>
 </template>
@@ -25,10 +25,12 @@
    h1{
       color: #66fcf1;
       font-weight: 800;
-      font-size: 60px;
+      font-size: 10vh;
       text-align: center;
    }
    em{
+      font-family: 'Oswald', sans-serif;
+      letter-spacing: 2px;
       display: block;
       text-align: center;
       color: #c5c6c7;

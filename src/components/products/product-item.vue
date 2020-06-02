@@ -12,7 +12,7 @@
                             {{item.name}}
                             <span class="badge badge-pill badge-info">{{item.category}}</span>
                         </h5>
-                        <p class="card-text">{{item.description}}</p>
+                        <p class="card-text description">{{item.description}}</p>
                         <p class="card-text price">${{item.price}}</p>
                         <div class="d-flex flex-column flex-md-row justify-content-between w-100">
                             <router-link 
@@ -108,6 +108,9 @@ import Pagination from '../Pagination'
     .card{
         &:hover .img-item{
             transform: scale(1.2);
+        }
+        .description{
+            height: 50px;
         }
     }
 </style>

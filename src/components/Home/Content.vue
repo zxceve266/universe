@@ -1,5 +1,5 @@
 <template>
-    <section class="section-title">
+    <section class="section-content">
         <div class="container mt-5">
             <div class="row justify-content-between align-items-center">
                 <div class="col-md-8 text-center text-md-left">
@@ -31,12 +31,13 @@
 </script>
 
 <style lang="scss">
-    .section-title {
+    .section-content {
         width: 100%;
         height: auto;
         background-color: #1f2833;
         position: relative;
         display: flex;
+        flex-direction: column;
         justify-content: center;
         // align-items: center;
 
@@ -53,9 +54,9 @@
         &::after {
             content: "";
             width: 100%;
-            height: 30vh;
+            height: 25vh;
             position: absolute;
-            bottom: -30px;
+            bottom: -10px;
             transform: skewY(6deg) translateY(50%);
             background-color: inherit;
         }
