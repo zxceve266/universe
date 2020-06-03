@@ -39,6 +39,7 @@ import{ mapGetters } from 'vuex'
 
 <style lang="scss" scoped>
 .category-list{
+    
     ul{
         list-style: none;
         padding: 10px;
@@ -46,7 +47,7 @@ import{ mapGetters } from 'vuex'
     li{
         width: 70px;
         height: 70px;
-        border: 1px solid rgba(0, 0, 0, 0.15);
+        border: 2px solid #eeeeee;
         padding: 10px;
         margin: 10px 10px;
         text-align: center;
@@ -56,15 +57,17 @@ import{ mapGetters } from 'vuex'
         align-items: center;
         cursor: pointer;
         border-radius: 50%;
+        transition: all 0.5s;
         &:hover{
             background-color: #007bff;
-            color: #fff;
+             color: #fff;
+             transform: scale(1.2);
         }
         
     }
 
     .active{
-        background-color: #007bff;
+        background-color:#007bff;
         color: #fff;
     }
     .count{

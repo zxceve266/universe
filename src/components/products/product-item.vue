@@ -1,17 +1,18 @@
 <template>
     <div class="product-item container">
-        <h2 class="mb-4 text-center text-dark">{{currentCategory}}</h2>
-        <label for="category">設定每頁顯示商品數量</label>
-        <select class="form-control w-25" id="category" @change="chengePerItem($event)">
-            <option>6</option>
-            <option>3</option>
-            <option>9</option>
+        <h2 class="mb-4 text-center" >{{currentCategory}}</h2>
+        <label class="d-block" for="category">設定每頁顯示商品數量</label>
+        <select class="form-control w-25 d-inline-block" id="category" @change="chengePerItem($event)">
+            <option>4</option>
+            <option>8</option>
+            <option>12</option>
         </select>
-        <h3 class="text-right">共{{setProdcutsNum}}筆商品</h3>
-        <div class="row">
-            <div v-for="item in setProductPagination[currentPage]" :key="item.id" class="col-12 col-md-6 col-lg-4 mb-4  ">
+        <h3 class="text-right d-inline-block ml-5">共{{setProdcutsNum}}筆商品</h3>
+        <div class="row mt-5">
+            <div v-for="item in setProductPagination[currentPage]" :key="item.id" 
+            class="col-12 col-md-6 col-lg-3 mb-4 ">
                 <div class="card">
-                    <div class="cart-img">
+                    <div class="cart-img mx-auto p-2">
                         <img :src="item.newProduct.img" class="img-item" alt="...">
                     </div>
                     <div class="card-body">
@@ -21,16 +22,16 @@
                         </h5>
                         <p class="card-text description">{{item.newProduct.description}}</p>
                         <p class="card-text price">${{item.newProduct.price}}</p>
-                        <div class="d-flex flex-column flex-md-row justify-content-between w-100">
+                        <div class="d-flex justify-content-between w-100">
                             <router-link 
+                            tag="button"
                             :to="`/products/${item.id}/info`" 
-                            class="btn btn-outline-primary"
+                            class="btn btn-primary"
                             >
                             <i class="fas fa-search-dollar"></i>
-                            觀看詳情
                             </router-link>
-                            <button class="btn btn-danger mt-2 mt-md-0" @click="addToCart(item)">
-                                <i class="fas fa-cart-arrow-down"></i> 馬上下單</button>
+                            <button class="btn btn-danger" @click="addToCart(item)">
+                                <i class="fas fa-cart-arrow-down"></i></button>
                         </div>
                     </div>
                 </div>
@@ -77,15 +78,23 @@ import{ mapGetters } from 'vuex'
     }
 </script>
 
-
-
-<style lang="scss">
-    .product-item{
-        .card-body{
-            // background-color: #1f2833;
+<style lang="scss" scoped>
+    .card{
+        color: #fff;
+        background: #000;
+        background: url('../../assets/jeremy-perkins-uhjiu8FjnsQ-unsplash.jpg');
+        border-radius: 25px;
+        transition: all 0.3s;
+        .description{
+            height: 50px;
+        }
+        button{
+            border-radius: 50%;
+        }
+        &:hover{
+            transform: scale(1.1);
         }
     }
-
     .price{
         font-size: 20px;
         color: #eb4d4b;
@@ -96,28 +105,16 @@ import{ mapGetters } from 'vuex'
         color: #fff;
         padding: 2px 6px;
         border-radius: 20px;
-        display: inline-block;
     }
     .cart-img{
-        height: 250px;
-        overflow: hidden;
-        
+        height: 230px;
+        width: 230px;
         .img-item{
             width: 100%;
             height: 100%;
+            border-radius: 50%;
             object-fit: cover;
-            transform: scale(1);
-            transition: 0.7s all ease-in-out;
-            
         }
     }
 
-    .card{
-        &:hover .img-item{
-            transform: scale(1.2);
-        }
-        .description{
-            height: 50px;
-        }
-    }
 </style>

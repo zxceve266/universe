@@ -1,5 +1,5 @@
 <template>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
             <router-link class="navbar-brand" :to="{name:'Home'}">Space Empire</router-link>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -37,21 +37,26 @@
                             <span>{{cartItemNumber}}</span>
                         </a>
                         
-                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                            <div class="nav-cart-items">
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown"
+                        >
+                            <div class="nav-cart-items"
+                            @click.stop
+                            >
                                 <div class="container-fluid" 
-                                v-for="item in cartItem" 
-                                :key="item.index"
+                                v-for="(item, index) in cartItem" 
+                                :key="index"
                                 >
                                     <div class="row p-2">
                                         <div class="col-3">
-                                            <img :src="item.img" class="img-fluid" alt="">
+                                            <img :src="item.newProduct.img" class="img-fluid" alt="">
                                         </div>
                                         <div class="col-9">
-                                            <h6>{{item.name}}</h6>
-                                            <span>數量:{{item.quantity}}</span>
-                                            <span>價格:NT{{item.price}}</span>
-                                            <i class="far fa-times-circle"></i>
+                                            <h6>{{item.newProduct.name}}</h6>
+                                            <span>數量:{{item.newProduct.quantity}}</span>
+                                            <span>價格:NT{{item.newProduct.price}}</span>
+                                            <i class="far fa-times-circle"
+                                            @click="removeItem(index)"
+                                            ></i>
                                         </div>
                                         
                                     </div>
@@ -69,7 +74,6 @@
                                     <router-link class="btn btn-info d-block"
                                     :to="{name:'Confirm'}">結帳去
                                     </router-link>
-                                    
                             </div>
                             <div class="p-2 " v-else>
                                 <h2 class="m-0">購物車是空的，趕快去買東西吧</h2>
@@ -101,12 +105,20 @@
                     return '登入'
                 }
             }
+        },
+        methods:{
+            removeItem(index){
+                console.log(index)
+                this.$store.commit('RemoveFromCart',index)
+            }
         }
     }
 </script>
 
 <style lang="scss">
-
+    .navbar{
+        background-color: #000;
+    }
     .navbar-nav a {
         font-size: 20px;
         margin: 0 10px;

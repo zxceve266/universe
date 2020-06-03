@@ -4,7 +4,7 @@ import { dbProductsRef } from '../../firebase' //導入資料庫方法
 const state = {
     products:[],
     currentCategory: '全部',
-    itemPerPage:6,
+    itemPerPage:4,
     currentPage:0
 }
 

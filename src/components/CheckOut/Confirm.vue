@@ -1,5 +1,24 @@
 <template>
     <div>
+        <section class="container mt-5">
+            <div class="procedure row justify-content-between  align-items-center">
+                <div class="procedure-icon active">
+                    <p class="pro-num">1</p>
+                    <img src="../../assets/planet-w.png" alt="">
+                    <p>確認訂單</p>
+                </div>
+                <div class="procedure-icon ">
+                    <p  class="pro-num">2</p>
+                    <img src="../../assets/startup-w.png" alt="">
+                    <p>填寫收件資料</p>
+                </div>
+                <div class="procedure-icon">
+                    <p class="pro-num">3</p>
+                    <img src="../../assets/rocket-w.png" alt="">
+                    <p>完成訂單</p>
+                </div>
+            </div>
+        </section>
         <div class="check-content container text-center my-4">
             <h2>你的商品總價為<br><span class="text-danger">NT{{cartTotal}}</span></h2>
             <p>所有商品即享有7天不滿意即退費</p>

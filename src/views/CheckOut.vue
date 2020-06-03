@@ -1,25 +1,6 @@
 <template>
     <div class="check-out container">
         <template v-if="cartItemNumber > 0">
-            <section class="container mt-5">
-                <div class="procedure row justify-content-between  align-items-center">
-                    <div class="procedure-icon ">
-                        <p class="pro-num">1</p>
-                        <img src="../assets/planet-w.png" alt="">
-                        <p>確認訂單</p>
-                    </div>
-                    <div class="procedure-icon ">
-                        <p  class="pro-num">2</p>
-                        <img src="../assets/startup-w.png" alt="">
-                        <p>填寫收件資料</p>
-                    </div>
-                    <div class="procedure-icon">
-                        <p class="pro-num">3</p>
-                        <img src="../assets/rocket-w.png" alt="">
-                        <p>完成訂單</p>
-                    </div>
-                </div>
-            </section>
             <router-view></router-view>
             </template>
              <div class="empty container mt-5" v-else>
@@ -79,20 +60,21 @@ import{ mapGetters } from 'vuex'
             position: absolute;
             top: 50%;
             left: 98%;
-            height: 20px;
+            height: 15px;
             transform: translateY(-50%);
             width: 29vw;
             background-color:inherit;
             display: block;
         }
-        &:nth-child(1){
-            background-color: #eb4d4b;
-        }
+        
         &:nth-child(3){
             &::before{
                 display: none;
             }
         }
+    }
+    .active.procedure-icon{
+        background-color: #eb4d4b;
     }
 }
 @media(max-width: 768px){

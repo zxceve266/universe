@@ -1,6 +1,25 @@
 <template>
     <div class="fill my-5">
-        <div class="row justify-content-around">
+        <section class="container mt-5">
+            <div class="procedure row justify-content-between  align-items-center">
+                <div class="procedure-icon active">
+                    <p class="pro-num">1</p>
+                    <img src="../../assets/planet-w.png" alt="">
+                    <p>確認訂單</p>
+                </div>
+                <div class="procedure-icon active">
+                    <p  class="pro-num">2</p>
+                    <img src="../../assets/startup-w.png" alt="">
+                    <p>填寫收件資料</p>
+                </div>
+                <div class="procedure-icon">
+                    <p class="pro-num">3</p>
+                    <img src="../../assets/rocket-w.png" alt="">
+                    <p>完成訂單</p>
+                </div>
+            </div>
+        </section>
+        <div class="row justify-content-around mt-4">
             <section class="col-12 col-lg-6 mb-4 mt-2">
                 <div class="accordion " id="accordionExample">
                     <div class="card">

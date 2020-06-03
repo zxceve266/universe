@@ -14,7 +14,13 @@
                         debitis
                         quae itaque enim ullam?</p>
                     <br>
-                    <button type="button" class="btn btn-primary btn-lg">Learn More</button>
+                    <router-link tag="div" 
+                    class="botton-nav w-75"
+                    :to="{name:'Serve'}"
+                    >
+                        <span class="d-inline-block mr-2">learn more</span>
+                        <button class="d-inline-block"><i class="fas fa-angle-right"></i></button>
+                    </router-link>
                 </div>
                 <div class="col-md-4 d-none d-md-block">
                     <img src="../../assets/astronaut.png" class="img-fluid w-100 h-100" alt="">
@@ -34,7 +40,7 @@
     .section-content {
         width: 100%;
         height: auto;
-        background-color: #1f2833;
+        background-color: #000;
         position: relative;
         display: flex;
         flex-direction: column;
@@ -71,11 +77,7 @@
             color: #c5c6c7;
             line-height: 1.5;
         }
-
-        button{
-            position: relative;
-            z-index: 1;
-        }
+       
 
         img {
             object-fit: contain;
@@ -97,4 +99,37 @@
             }
         }
     }
+
+     .botton-nav{
+            position: relative;
+            z-index: 1;
+            color: #fff;
+            button {
+                padding: 10px 20px;
+                background-color: transparent;
+                margin-top: 60px;
+                color: #c5c6c7;
+                outline: none;
+                border: 2px solid #66fcf1;
+                font-size: 20px;
+                border-radius: 50%;
+                transition: all 0.5s;
+            }
+            span{
+                font-size: 20px;
+                font-family: 'Oswald', sans-serif;
+                text-transform: uppercase;
+                transition: all 0.5s;
+            }
+            &:hover button{
+                box-shadow: 0 0 30px 5px #66fcf1;
+                transform: translateX(200%);
+                background-color: #66fcf1;
+                color: #fff;
+            }
+            &:hover span{
+                transform: translateX(50%) scale(1.4);
+                color: #c5c6c7;
+            }
+        }
 </style>
