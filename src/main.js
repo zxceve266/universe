@@ -3,7 +3,9 @@ import App from './App.vue'
 import router from './router/router'
 import store from './store/store'
 
-
+import VueAwesomeSwiper from 'vue-awesome-swiper';
+import 'swiper/css/swiper.css';
+Vue.use(VueAwesomeSwiper);
 
 import Loading from 'vue-loading-overlay'//Loading 導入
 import 'vue-loading-overlay/dist/vue-loading.css'

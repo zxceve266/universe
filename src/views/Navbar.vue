@@ -108,7 +108,6 @@
         },
         methods:{
             removeItem(index){
-                console.log(index)
                 this.$store.commit('RemoveFromCart',index)
             }
         }

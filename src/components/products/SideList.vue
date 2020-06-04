@@ -1,27 +1,23 @@
 <template>
     <div class="category-list">
         <ul class=" d-flex justify-content-center flex-wrap">
-            <li @click="setCatgory('全部')"
-            :class="{active:currentCategory === '全部'}"
-            >
+            <li @click="setCatgory('全部')" :class="{active:currentCategory === '全部'}">
                 <span>全部</span>
             </li>
-            <li 
-            v-for ="item in categories"
-            :key="item.id"
-            :class="{active:currentCategory === item}"
-            @click="setCatgory(item)"
-            >
-            {{item}}
+            <li v-for="item in categories" :key="item.id" :class="{active:currentCategory === item}"
+                @click="setCatgory(item)">
+                {{item}}
             </li>
         </ul>
     </div>
 </template>
 
 <script>
-import{ mapGetters } from 'vuex'
+    import {
+        mapGetters
+    } from 'vuex'
     export default {
-        computed:{
+        computed: {
             ...mapGetters([
                 'categories',
                 'currentCategory',
@@ -29,53 +25,58 @@ import{ mapGetters } from 'vuex'
             ]),
 
         },
-        methods:{
-            setCatgory(item){
-                this.$store.commit('setCatgory',item)
+        methods: {
+            setCatgory(item) {
+                this.$store.commit('setCatgory', item)
             }
         }
     }
 </script>
 
 <style lang="scss" scoped>
-.category-list{
-    
-    ul{
-        list-style: none;
-        padding: 10px;
-    }
-    li{
-        width: 70px;
-        height: 70px;
-        border: 2px solid #eeeeee;
-        padding: 10px;
-        margin: 10px 10px;
-        text-align: center;
-        font-size: 20px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        cursor: pointer;
-        border-radius: 50%;
-        transition: all 0.5s;
-        &:hover{
-            background-color: #007bff;
-             color: #fff;
-             transform: scale(1.2);
-        }
-        
-    }
+    .category-list {
 
-    .active{
-        background-color:#007bff;
-        color: #fff;
+        ul {
+            list-style: none;
+            padding: 10px;
+        }
+
+        li {
+            width: 70px;
+            height: 70px;
+            padding: 10px;
+            margin: 10px 10px;
+            text-align: center;
+            font-size: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            border-radius: 50%;
+            background: #ffffff;
+            box-shadow: 8px 8px 16px #d9d9d9,
+                -8px -8px 16px #ffffff;
+            transition: all 0.5s;
+
+            &:hover {
+                background-color: #007bff;
+                color:#fff;
+                transform: scale(1.2);
+            }
+
+        }
+
+        .active {
+            background-color: #007bff;
+            color: #fff;
+        }
+
+        .count {
+            background-color: red;
+            width: 30px;
+            height: 30px;
+            color: #fff;
+            border-radius: 50%;
+        }
     }
-    .count{
-        background-color: red;
-        width: 30px;
-        height: 30px;
-        color: #fff;
-        border-radius: 50%;
-    }
-}
 </style>

@@ -129,6 +129,7 @@
             }
             &:hover span{
                 transform: translateX(50%) scale(1.4);
+                letter-spacing: 2px;
                 color: #c5c6c7;
             }
         }

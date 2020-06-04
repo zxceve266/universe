@@ -66,7 +66,7 @@
     .info {
         display: flex;
         align-items: center;
-        background: #000;
+        background: url('../assets/jeremy-perkins-uhjiu8FjnsQ-unsplash.jpg');
         border-radius: 25px;
         color: #fff;
 

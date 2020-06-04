@@ -44,6 +44,7 @@
   .products {
     min-height: 100vh;
     position: relative;
+    
     // background-color: #000;    
     // background: url('../assets/jeremy-perkins-uhjiu8FjnsQ-unsplash.jpg');
     // background-attachment: fixed;
