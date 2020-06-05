@@ -25,7 +25,6 @@
                 </div>
             </div>
             <div class="px-3 pb-3" v-if="cartItemNumber !== 0">
-                <div class="dropdown-divider"></div>
                 <div class="row mb-2">
                     <div class="col-7">
                         全部有: <span class=" text-success">{{cartItemNumber}}件商品</span>
@@ -74,9 +73,8 @@
         }
     }
 </script>
-
-<style lang="scss">
-    .cartIcon {
+<style lang="scss" scoped>
+     .cartIcon {
         position: fixed;
         bottom: 3%;
         right: 4%;
@@ -160,7 +158,7 @@
             i {
                 position: absolute;
                 top: -15%;
-                right: -10%;
+                right: -5%;
                 font-size: 30px;
                 &:active{
                     color: red;

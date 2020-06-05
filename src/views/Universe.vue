@@ -1,6 +1,6 @@
 <template>
     <div class="universe overflow-hidden">
-        <Navbar />
+        <Navbar2 />
         <router-view class="pt-4 mt-4"/>
         <Footer />
         <CartIcon/>
@@ -8,12 +8,12 @@
 </template>
 
 <script>
-    import Navbar from '../views/Navbar'
+    import Navbar2 from '../views/Navbar2'
     import Footer from '../views/Footer'
     import CartIcon from '../components/Universe/CartIcon'
     export default {
         components: {
-            Navbar,
+            Navbar2,
             Footer,
             CartIcon
         },

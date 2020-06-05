@@ -112,6 +112,7 @@
             }
         }
     }
+    
 </script>
 
 <style lang="scss">
