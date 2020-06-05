@@ -5,7 +5,8 @@ const state = {
     products:[],
     currentCategory: '全部',
     itemPerPage:4,
-    currentPage:0
+    currentPage:0,
+    pickItem:null,
 }
 
 const getters = {
@@ -13,6 +14,8 @@ const getters = {
     currentCategory:(state)=> state.currentCategory,
     itemPerPage:(state)=> state.itemPerPage,
     currentPage:(state)=> state.currentPage,
+    pickItem:(state)=> state.pickItem,
+
     
     findItem:(state)=>{//根據ID 找到對應的Product
         return (id)=>{
@@ -76,6 +79,9 @@ const mutations={
     setItemPerPage(state,value){
         state.currentPage = 0
         state.itemPerPage = value
+    },
+    setPickItem(state,value){
+        state.pickItem = value
     }
 
 }

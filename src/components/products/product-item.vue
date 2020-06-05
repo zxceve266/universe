@@ -10,7 +10,7 @@
         <h3 class="text-right d-inline-block ml-5">共{{setProdcutsNum}}筆商品</h3>
         <div class="row mt-5">
             <div v-for="item in setProductPagination[currentPage]" :key="item.id" 
-            class="col-12 col-md-6 col-lg-3 mb-4 ">
+            class="col-12 col-md-6 col-lg-4 col-xl-3 mb-4 ">
                 <div class="card">
                     <div class="cart-img mx-auto p-2">
                         <img :src="item.newProduct.img" class="img-item" alt="...">
@@ -114,6 +114,13 @@ import{ mapGetters } from 'vuex'
             height: 100%;
             border-radius: 50%;
             object-fit: cover;
+        }
+    }
+    @media (max-width: 992px){
+        .card{
+             &:hover{
+                transform: scale(1);
+            }
         }
     }
 

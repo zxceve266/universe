@@ -1,21 +1,33 @@
 <template>
-  <div class="products container-fluid">
-    <!-- <nav aria-label="breadcrumb" class="mt-4">
-      <ol class="breadcrumb">
-        <li class="breadcrumb-item"><router-link :to="{name:'Home'}">首頁</router-link></li>
-        <li class="breadcrumb-item"><router-link :to="{name:'Products'}">產品</router-link></li>
-        <template v-if="isInfo">
-        <li class="breadcrumb-item active" aria-current="page" v-if="!isInfo">{{currentCategory}}</li>
-        </template>
-      </ol>
-    </nav> -->
-    <router-view></router-view>
-    <div class="row mt-4" v-if="!isInfo">
-      <div class="col-12">
-        <SideList/>
-      </div>
-      <div class="col-12">
-        <ProductItem/>
+  <div class="products">
+    <div class="products-banner d-flex justify-content-center align-items-center flex-column">
+      <h2>產品列表</h2>
+    </div>
+    <div class="container-fluid">
+      <nav aria-label="breadcrumb" class="mt-4">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><router-link :to="{name:'Home'}">首頁</router-link></li>
+          <li class="breadcrumb-item"><router-link :to="{name:'Products'}">產品</router-link></li>
+          <template v-if="isInfo">
+          <li class="breadcrumb-item active" aria-current="page">
+            <router-link :to="{name:'Products'}"
+            @click.native="setCatgory(pickItem.newProduct.category)"
+            >
+              {{pickItem.newProduct.category}}
+            </router-link>
+          </li>
+          <li class="breadcrumb-item active" aria-current="page">{{pickItem.newProduct.name}}</li>
+          </template>
+        </ol>
+      </nav>
+      <router-view></router-view>
+      <div class="row mt-4" v-if="!isInfo">
+        <div class="col-12">
+          <SideList/>
+        </div>
+        <div class="col-12">
+          <ProductItem/>
+        </div>
       </div>
     </div>
   </div>
@@ -35,7 +47,13 @@
     computed: {
       ...mapGetters([
         'isInfo',//選中商品的名子
+        'pickItem'
       ]),
+    },
+    methods:{
+      setCatgory(item){
+        this.$store.commit('setCatgory',item)
+      }
     }
   }
 </script>
@@ -45,9 +63,23 @@
     min-height: 100vh;
     position: relative;
     
-    // background-color: #000;    
-    // background: url('../assets/jeremy-perkins-uhjiu8FjnsQ-unsplash.jpg');
-    // background-attachment: fixed;
     
+    
+  }
+
+  .products-banner{
+    height: 50vh;
+    width: 100%;
+    background-color: #000;    
+    background: url('../assets/nasa-Q1p7bh3SHj8-unsplash.jpg') no-repeat;
+    background-attachment: fixed;
+    background-size:cover;
+    background-position: center;
+    h2{
+      color: #fff;
+      font-size: 9vh;
+      letter-spacing: 10px;
+      text-shadow: 3px 3px #000;
+    }
   }
 </style>

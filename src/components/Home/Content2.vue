@@ -77,16 +77,16 @@
                     <p class="text-left">專業、精確、效率，更努力於不斷地自我提升 Space Empire 秉持多年火箭發射專業經驗，
                         相關太空任務、旅遊的評估、引進、技術指導至售後服務，全程皆由公司所屬的專業團隊貫徹完成，
                         並利用大數據管理平台，提供完整技術支援和太空諮詢讓客戶無後顧之憂，
-                        並得以發揮機具管理的最大效能。未來將持續專注在太空資源的開發、小行星採礦、外部星球探索、
-                        及成立深空探索艦隊。
+                        並得以發揮機具管理的最大效能。未來將持續專注在太空資源的開發、小行星採礦、太陽系內天體開發、
+                        以及成立深空探索艦隊。
                     </p>
                     <router-link tag="div" class="botton-nav w-75" :to="{name:'Products'}">
                         <span class="d-inline-block mr-2">see more products</span>
                         <button class="d-inline-block"><i class="fas fa-angle-right"></i></button>
                     </router-link>
                 </div>
-                <div class="col-12 col-lg-6 mt-5 text-center">
-                    <img src="../../assets/satellite.png" alt="" class=" img-fluid">
+                <div class="col-12 col-lg-6 mt-5 text-right text-lg-center">
+                    <img src="../../assets/satellite.png" alt="" class="space-ship">
                 </div>
                 <div class="text-center">
                     <img src="https://images.pexels.com/photos/87651/earth-blue-planet-globe-planet-87651.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
@@ -195,6 +195,9 @@
     }
 
     .content2-2 {
+        .space-ship{
+            width: 50%;
+        }
         .earth {
             width: 100vw;
             height: 60vh;

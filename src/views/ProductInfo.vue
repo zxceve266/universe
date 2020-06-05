@@ -41,7 +41,9 @@
         computed: {
             ...mapGetters(['findItem']),
             getItem() {
-                return this.findItem(this.$route.params.id)[0]
+                let item = this.findItem(this.$route.params.id)[0]
+                this.$store.commit('setPickItem',item)
+                return item
             }
         },
         beforeRouteEnter(to, from, next) { //進來前先改變info狀態 因為beforeEnter無法收到this 所以用Vm代替this 
