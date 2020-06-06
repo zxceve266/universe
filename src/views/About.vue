@@ -12,7 +12,7 @@
         <h2 class="mt-5">提供服務</h2>
         <div class="row align-items-center justify-content-center mt-4">
           <div class="col-12 col-md-6">
-            <img src="https://lh3.googleusercontent.com/proxy/8Wt5DbETfhIqPOe6O8rMjgeLb_aPmtKMVhueEWsRYDKg_lDtkDtAUBgV8qQxZRCWjvBR-qvoGKHsWmYqRVae-LS7yS1pG6m9IaBbzwWkVy0TO_VgdO_VmxnZ5vI6YA" class=" img-fluid" alt="">
+            <img src="https://img.mp.itc.cn/upload/20170731/9ef8d760441c46c8a4c75a44c8e59934_th.jpg" class=" img-fluid" alt="">
           </div>
           <div class="col-12 col-md-6 mt-4">
             <h3>小行星採礦</h3>

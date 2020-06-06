@@ -2,7 +2,7 @@
     <nav class="fixed-top">
         <div class=" d-flex">
             <router-link class="logo" :to="{name:'Home'}">Space Empire</router-link>
-            <ul class="ml-auto d-none d-lg-block">
+            <ul class="ml-auto mr-4"  ref="toggleNav">
                 <li>
                     <router-link :to="{name:'Home'}">首頁</router-link>
                 </li>
@@ -15,8 +15,8 @@
                 <li>
                     <router-link :to="{name:'User'}">{{isUser}}</router-link>
                 </li>
-                <li>
-                    <a href="" @click.prevent="openToggle">
+                <li class="d-none d-lg-inline-block">
+                    <a href="" class="cart" @click.prevent="openToggle">
                         <i class="fas fa-shopping-cart"></i>
                         購物車
                         <span>{{cartItemNumber}}</span>
@@ -59,7 +59,9 @@
                 </li>
             </ul>
         </div>
-        <span class="menu-icon"></span>
+        <span class="menu-icon d-block d-lg-none" ref="globe"  @click="toggle">
+            <i class="fas fa-globe-americas" ></i>
+        </span>
     </nav>
 </template>
 
@@ -70,7 +72,8 @@
     export default {
         data() {
             return {
-                isShow: true
+                isShow: true,
+                toggleNav:false
             }
         },
         computed: {
@@ -94,6 +97,10 @@
             },
             removeItem(index){
                 this.$store.commit('RemoveFromCart',index)
+            },
+            toggle(){
+                this.$refs.toggleNav.classList.toggle('active')
+                this.$refs.globe.classList.toggle('active')
             }
         },
         mounted() {
@@ -127,9 +134,8 @@
     ul {
         list-style: none;
         height: 100%;
-
         li {
-            margin: 0 25px;
+            margin: 0 30px;
             display: inline-block;
 
             a {
@@ -137,6 +143,12 @@
                 color: #c5c6c7;
                 font-size: 20px;
                 line-height: 60px;
+                &:hover{
+                    color: #fff;
+                }
+                &:active{
+                    color: #fff;
+                }
             }
         }
     }
@@ -196,21 +208,70 @@
                 }
             }
         }
+        .cart {
+        position: relative;
+        span {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            right: -40%;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background-color:red;
+            font-size: 15px;
+            text-align: center;
+            line-height: 28px;
+            color: #fff;
+            font-style: normal;
+        }
+    }
 
     @media (max-width:992px) {
-        ul {
-            list-style: none;
-            height: 100%;
+        nav{
+            .logo {
+            margin: 0 auto;
+            }
+        }
+        ul{
+            display: none;
+            transition:all 1s;
+        }
+
+        ul.active {
+            position: absolute;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            padding: 0;
+            height: 100vh;
+            width: 100vw;
+            background-color: #000;
 
             li {
-                margin: 0 25px;
-                display: inline-block;
-
                 a {
-                    text-decoration: none;
-                    color: #c5c6c7;
-                    font-size: 20px;
-                    line-height: 60px;
+                    font-size: 30px;
+                }
+            }
+        }
+        .menu-icon{
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            i{
+                font-size: 30px;
+                box-shadow: 0 0 25px 3px #66fcf1;
+                border-radius: 50%;
+                transition: 0.5s all;
+            }
+
+            &.active{
+                i{
+                    box-shadow: 0 0 40px 5px #fff;
+                    color: #66fcf1;
+                    transform: scale(1.2);
                 }
             }
         }
