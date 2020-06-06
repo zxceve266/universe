@@ -1,13 +1,13 @@
 <template>
-    <div class="container vh-100 d-flex align-items-center">
+<div class="user overflow-hidden">
+    <div class="container h-100 d-flex align-items-center justify-content-center justify-content-md-start">
         <form class=" my-auto" v-if="!currentUser">
             <h3>會員登入</h3>
             <div class="form-group">
                 <label for="exampleInputEmail1">電子郵件</label>
                 <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
                     v-model="email">
-                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone
-                    else.</small>
+                <small id="emailHelp" class="form-text text-muted">請輸入電子信箱</small>
             </div>
             <div class="form-group">
                 <label for="exampleInputPassword1">密碼</label>
@@ -17,15 +17,16 @@
                 <input type="checkbox" class="form-check-input" id="exampleCheck1">
                 <label class="form-check-label" for="exampleCheck1">記住我</label>
             </div>
-            <button type="submit" class="btn btn-primary" @click.prevent="signIn">登入</button>
+            <button  class="sp-btn btn-pulse-2" @click.prevent="signIn">登入</button>
         </form>
         <div class="container text-center" v-else>
             <h2>歡迎 {{currentUser}}</h2>
             <p>可以繼續 <router-link :to="{name:'Products'}">逛商城</router-link>，或是去 <router-link :to="{name:'Admin'}">管理員介面</router-link></p>
-            <button type="submit" class="btn btn-danger" @click.prevent="signOut">登出</button>
+            <button  class="sp-btn btn-pulse" @click.prevent="signOut">登出</button>
         </div>
         <loading :active.sync="isLoading"></loading>
     </div>
+</div>
 </template>
 
 <script>
@@ -86,6 +87,18 @@
     }
 </script>
 
-<style>
+<style lang="scss">
+.user{
+    background: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/499416/demo-bg.jpg') no-repeat;
+    background-position:bottom;
+    background-size: cover;
+    height:100vh;
+    h3,h2,p{
+        color:#fff
+    }
 
+    label{
+        color:#fff
+    }
+}
 </style>

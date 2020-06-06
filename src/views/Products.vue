@@ -5,7 +5,7 @@
     </div>
     <div class="container-fluid">
       <nav aria-label="breadcrumb" class="mt-4">
-        <ol class="breadcrumb">
+        <ol class="sp-breadcrumb container d-flex ml-auto">
           <li class="breadcrumb-item"><router-link :to="{name:'Home'}">首頁</router-link></li>
           <li class="breadcrumb-item"><router-link :to="{name:'Products'}">產品</router-link></li>
           <template v-if="isInfo">
@@ -22,10 +22,10 @@
       </nav>
       <router-view></router-view>
       <div class="row mt-4" v-if="!isInfo">
-        <div class="col-12">
+        <div class="col-12 col-md-2">
           <SideList/>
         </div>
-        <div class="col-12">
+        <div class="col-12 col-md-10">
           <ProductItem/>
         </div>
       </div>
@@ -62,9 +62,6 @@
   .products {
     min-height: 100vh;
     position: relative;
-    
-    
-    
   }
 
   .products-banner{
@@ -81,5 +78,11 @@
       letter-spacing: 10px;
       text-shadow: 3px 3px #000;
     }
+  }
+
+  .sp-breadcrumb{
+    padding: 15px 20px;
+    background-color: #000;
+    border-radius: 20px;
   }
 </style>

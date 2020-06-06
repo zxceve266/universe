@@ -22,7 +22,7 @@
         <div class="check-content container text-center my-4">
             <h2>你的商品總價為<br><span class="text-danger">NT{{cartTotal}}</span></h2>
             <p>所有商品即享有7天不滿意即退費</p>
-            <router-link class="btn btn-info w-50" :to="{name:'Fill'}">
+            <router-link class="sp-btn btn-pulse-2 w-50" tag="button" :to="{name:'Fill'}">
                 <i class="fas fa-dollar-sign"></i> 立即結帳
             </router-link>
         </div>
@@ -59,10 +59,10 @@
                     <h4 class="text-danger">NT{{cartTotal}}</h4>
                 </div>
             </div>
-            <router-link class="btn btn-success mt-4 mr-4" :to="{name:'Products'}">
+            <router-link class="sp-btn btn-pulse mt-4 mr-4" tag="button" :to="{name:'Products'}">
                 <i class="fas fa-shopping-cart"></i> 繼續購物
             </router-link>
-            <router-link class="btn btn-info w-50 mt-4" :to="{name:'Fill'}">
+            <router-link class="sp-btn btn-pulse-2 w-50 mt-4" tag="button" :to="{name:'Fill'}">
                 <i class="fas fa-pen-alt"></i> 填寫資料
             </router-link>
         </section>

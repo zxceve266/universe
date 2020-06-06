@@ -7,7 +7,7 @@
         <section class="cartIcon-detail" v-show="isShow" @click.stop>
             <div class="cartIcon-display">
                 <div class="container-fluid" v-for="(item, index) in cartItem" :key="index">
-                    <div class="row p-3 w-100 align-items-center mx-auto">
+                    <div class="row p-2 w-100 align-items-center mx-auto">
                         <div class="col-3 p-0">
                             <img :src="item.newProduct.img" class="img-fluid" alt="">
                         </div>
@@ -31,8 +31,10 @@
                     </div>
                     <div class="col-5">總共: <span class="text-danger">NT {{cartTotal}}</span></div>
                 </div>
-                <router-link class="btn btn-info d-block" @click.native="openToggle" :to="{name:'Confirm'}">結帳去
-                </router-link>
+               <router-link class="sp-btn btn-flip w-100 mt-3" tag="button" @click.native="openToggle" :to="{name:'Confirm'}">
+                                <span class="btn-flip__visible">check out!</span>
+                                <span class="btn-flip__invisible">check out!</span>
+                            </router-link>
             </div>
             <div class="p-4 " v-else>
                 <h4 class="m-0 text-center">購物車是<span style="color:#66fcf1">空的</span><br>趕快去買東西吧</h4>
@@ -80,7 +82,7 @@
         right: 4%;
         width: 10vh;
         height: 10vh;
-        background-color: #1f2833;
+        background-color: #000;
         border-radius: 50%;
         box-shadow: 0 0 20px 5px #66fcf1;
         transition: box-shadow 0.5s;
@@ -115,7 +117,7 @@
             position: absolute;
             bottom: 130%;
             right: 0;
-            background-color: #1f2833;
+            background-color: #000;
             border-radius: 20px;
             color: #fff;
 
@@ -131,7 +133,7 @@
                 border-bottom: 0;
                 border-left: 15px solid transparent;
                 border-right: 15px solid transparent;
-                border-top: 15px solid #1f2833;
+                border-top: 15px solid #000;
 
             }
             h4{
@@ -149,6 +151,7 @@
                 height: 12vh;
                 width: 12vh;
                 object-fit: cover;
+                border-radius: 50%;
             }
 
             p {

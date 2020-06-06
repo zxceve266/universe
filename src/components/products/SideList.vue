@@ -1,5 +1,5 @@
 <template>
-    <div class="category-list">
+    <div class="category-list sticky-top">
         <ul class=" d-flex justify-content-center flex-wrap">
             <li @click="setCatgory('全部')" :class="{active:currentCategory === '全部'}">
                 <span>全部</span>
@@ -35,6 +35,7 @@
 
 <style lang="scss" scoped>
     .category-list {
+        top: 60px;
 
         ul {
             list-style: none;
@@ -54,15 +55,43 @@
             cursor: pointer;
             border-radius: 50%;
             background: #ffffff;
-            box-shadow: 8px 8px 16px #d9d9d9,
-                -8px -8px 16px #ffffff;
-            transition: all 0.5s;
+            box-shadow: 5px 5px 8px #cfcfcf,
+                -5px -5px 8px #ffffff;
+            // transition: all 0.5s;
+            position: relative;
+
+            &::after {
+                content: "";
+                display: inline-block;
+                position: absolute;
+                z-index: -1;
+                width: 100%;
+                height: 100%;
+                border: inherit;
+                top: 0;
+                left: 0;
+                background-color: inherit;
+                border-radius: inherit;
+                transition: all .3s;
+            }
 
             &:hover {
                 background-color: #007bff;
-                color:#fff;
-                transform: scale(1.2);
+                color: #fff;
+                transform: scale(1.1);
+                &::after {
+                    transform: scale(1.3);
+                    opacity: 0;
+                }
             }
+
+
+            // &:hover {
+            //     &::after {
+            //         transform: scaleX(1.1) scaleY(1.3);
+            //         opacity: 0;
+            //     }
+            // }
 
         }
 

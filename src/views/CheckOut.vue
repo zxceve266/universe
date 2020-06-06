@@ -30,7 +30,7 @@ import{ mapGetters } from 'vuex'
 <style lang="scss">
 
 .empty{
-    height: 56.5vh;
+    height: 60.5vh;
     display: flex;
     text-align: center;
     flex-direction: column;

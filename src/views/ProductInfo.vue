@@ -16,11 +16,11 @@
                     <span class="green-btn">&#43;</span>
                 </div>
                 <h2 class="text-danger mt-4">${{getItem.newProduct.price}}</h2>
-                <button class="btn btn-danger" @click="addToCart(getItem)">
+                <button class="sp-btn btn-pulse" @click="addToCart(getItem)">
                     <i class="fas fa-cart-arrow-down"></i>
                     加入購物車
                 </button>
-                <router-link class="btn btn-success mt-4" :to="{name:'Products'}">
+                <router-link class="sp-btn btn-pulse-2 mt-4" tag="button" :to="{name:'Products'}">
                     <i class="fas fa-shopping-cart"></i> 繼續購物
                 </router-link>
             </div>

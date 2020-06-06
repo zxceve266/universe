@@ -120,8 +120,9 @@
                         </div>
                     </fieldset>
                     <div>
-                        <button class="btn btn-primary text-right" 
+                        <button class="sp-btn btn-pulse-3 text-right" 
                         @click.prevent="addNewOrders"
+                        tag="buttom"
                         >送出訂單
                         </button>
                     </div>

@@ -1,5 +1,5 @@
 <template>
-  <div class="home">
+  <div class="home overflow-hidden">
     <Banner />
     <Content/>
     <Content2/>

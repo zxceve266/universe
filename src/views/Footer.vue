@@ -22,7 +22,7 @@ export default {
 <style lang="scss">
 footer{
     width: 100%;
-    height: 30vh;
+    height: 26vh;
     background-color: #000;
     color: #fff;
     a{
