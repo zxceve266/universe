@@ -1,7 +1,9 @@
 <template>
     <div class="universe ">
         <Navbar2 />
-        <router-view class="pt-4 mt-4"/>
+        <transition name="fade">
+            <router-view class="pt-4 mt-4"/>
+        </transition>
         <Footer />
         <CartIcon/>
     </div>

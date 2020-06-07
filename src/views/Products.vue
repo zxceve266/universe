@@ -1,7 +1,7 @@
 <template>
   <div class="products">
     <div class="products-banner d-flex justify-content-center align-items-center flex-column">
-      <h2>產品列表</h2>
+      <h2 class="wow fadeInUp" data-wow-duration="1s">產品列表</h2>
     </div>
     <div class="container-fluid">
       <nav aria-label="breadcrumb" class="mt-4">

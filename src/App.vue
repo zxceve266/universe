@@ -52,6 +52,20 @@
     margin-top: 60px;
   }
 
+  .fade-enter {
+  opacity: 0;
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.3s ease-out;
+}
+
+.fade-leave-to {
+  opacity: 0;
+}
+
+
   .sp-btn {
     //最基本Btn Style
     font-size: 18px;

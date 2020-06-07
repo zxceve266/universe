@@ -1,8 +1,8 @@
 <template>
    <div class="banner">
-      <h1 class="mb-5">來一場太空之旅吧</h1>
-      <em class="banner-subText">That's one small step for man, one giant leap for mankind.</em>
-      <button class="sp-btn btn-fill mt-5"><span>開始探索</span></button>
+      <h1 class="mb-5 wow zoomIn" data-wow-duration="1.5s">來一場太空之旅吧</h1>
+      <em class="banner-subText px-4 wow fadeInUp" data-wow-delay="0.5s">We are all in the gutter, but some of us are looking at the stars.</em>
+      <button class="sp-btn btn-fill mt-5 wow fadeInUp" data-wow-delay="0.5s"><span>開始探索</span></button>
    </div>
 </template>
 

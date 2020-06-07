@@ -71,6 +71,7 @@
                     color: #fff;
                 }
             }
+            
         }
 
         li.active {

@@ -1,5 +1,5 @@
 <template>
-    <div class="category-list sticky-top">
+    <div class="category-list">
         <ul class=" d-flex justify-content-center flex-wrap">
             <li @click="setCatgory('全部')" :class="{active:currentCategory === '全部'}">
                 <span>全部</span>
@@ -35,6 +35,7 @@
 
 <style lang="scss" scoped>
     .category-list {
+        position: sticky;
         top: 60px;
 
         ul {

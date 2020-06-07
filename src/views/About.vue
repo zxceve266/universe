@@ -61,7 +61,7 @@
     background: url('../assets/spacex-OHOU-5UVIYQ-unsplash.jpg') no-repeat;
     background-attachment: fixed;
     background-size: cover;
-    background-position: conter;
+    background-position: top;
 
   }
 

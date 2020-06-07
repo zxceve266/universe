@@ -3,7 +3,7 @@ import App from './App.vue'
 import router from './router/router'
 import store from './store/store'
 
-import VueAwesomeSwiper from 'vue-awesome-swiper';
+import VueAwesomeSwiper from 'vue-awesome-swiper';//swiper導入
 import 'swiper/css/swiper.css';
 Vue.use(VueAwesomeSwiper);
 
@@ -18,7 +18,18 @@ import VueSweetalert2 from 'vue-sweetalert2';//sweetalert2導入
 import 'sweetalert2/dist/sweetalert2.min.css';
 Vue.use(VueSweetalert2)
 
+import WOW from 'wow.js'
+const wow = new WOW({
+  boxClass: 'wow',
+  animateClass: 'animated',
+  offset: 0,
+  live: true
+});
+
+wow.init();
+
 Vue.config.productionTip = false
+
 
 new Vue({
   router,
