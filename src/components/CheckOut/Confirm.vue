@@ -22,7 +22,7 @@
         <div class="check-content container text-center my-4">
             <h2>你的商品總價為<br><span class="text-danger">NT{{cartTotal}}</span></h2>
             <p>所有商品即享有7天不滿意即退費</p>
-            <router-link class="sp-btn btn-pulse-2 w-50" tag="button" :to="{name:'Fill'}">
+            <router-link class="sp-btn btn-pulse-2 w-100" tag="button" :to="{name:'Fill'}">
                 <i class="fas fa-dollar-sign"></i> 立即結帳
             </router-link>
         </div>
@@ -35,10 +35,11 @@
                 <div class="col-12 col-md-3">
                     <h4>{{item.newProduct.name}}</h4>
                 </div>
-                <div class="col-4 col-md-2 align-items-center text-left">
-                    <p>數量:{{item.newProduct.quantity}}<br>單價:{{item.price}}</p>
+                <div class="col-4 col-md-2 align-items-center ">
+                    <p>數量:{{item.newProduct.quantity}}</p>
+                    <p>單價:{{item.newProduct.price}}</p>
                 </div>
-                <div class="col-4 col-md-2">總計:{{item.newProduct.quantity * item.newProduct.price}}</div>
+                <div class="col-4 col-md-2"><p>總計:{{item.newProduct.quantity * item.newProduct.price}}</p></div>
                 <div class="col-4 col-md-1 text-center">
                     <button class="btn btn-danger" @click="removeItem(index)">
                         <i class="fas fa-trash-alt text-light"></i>
@@ -59,12 +60,14 @@
                     <h4 class="text-danger">NT{{cartTotal}}</h4>
                 </div>
             </div>
-            <router-link class="sp-btn btn-pulse mt-4 mr-4" tag="button" :to="{name:'Products'}">
-                <i class="fas fa-shopping-cart"></i> 繼續購物
-            </router-link>
-            <router-link class="sp-btn btn-pulse-2 w-50 mt-4" tag="button" :to="{name:'Fill'}">
-                <i class="fas fa-pen-alt"></i> 填寫資料
-            </router-link>
+            <div class=" d-flex justify-content-between">
+                <router-link class="sp-btn btn-pulse" tag="button" :to="{name:'Products'}">
+                    <i class="fas fa-shopping-cart"></i> 繼續購物
+                </router-link>
+                <router-link class="sp-btn btn-pulse-2 w-100" tag="button" :to="{name:'Fill'}">
+                    <i class="fas fa-pen-alt"></i> 填寫資料
+                </router-link>
+            </div>
         </section>
     </div>
 </template>
@@ -97,6 +100,11 @@ import{ mapGetters } from 'vuex'
         width: 25vh;
         height: 25vh;
         object-fit: cover;
+        border-radius: 50%;
+    }
+    p{
+        margin: 0;
+        font-size: 20px;
     }
 }
 </style>
