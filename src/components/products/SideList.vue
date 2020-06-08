@@ -56,8 +56,8 @@
             cursor: pointer;
             border-radius: 50%;
             background: #ffffff;
-            box-shadow: 5px 5px 8px #cfcfcf,
-                -5px -5px 8px #ffffff;
+           box-shadow:  6px 6px 15px #d1d1d1, 
+             -6px -6px 15px #ffffff;
             // transition: all 0.5s;
             position: relative;
 

@@ -26,8 +26,8 @@
                 <i class="fas fa-dollar-sign"></i> 立即結帳
             </router-link>
         </div>
-        <section class="check-detail">
-            <div class="row align-items-center px-md-5 border-top text-center" 
+        <section class="check-detail container-fluid">
+            <div class="row align-items-center px-md-5 py-2 mb-3 border-top text-center" 
             v-for="(item, index) in cartItem" :key="index">
                 <div class="col-12 col-md-3">
                     <img :src="item.newProduct.img" class="confirm-img img-fluid py-2" alt="">
@@ -35,7 +35,7 @@
                 <div class="col-12 col-md-3">
                     <h4>{{item.newProduct.name}}</h4>
                 </div>
-                <div class="col-4 col-md-2 align-items-center ">
+                <div class="col-4 col-md-2 align-items-center">
                     <p>數量:{{item.newProduct.quantity}}</p>
                     <p>單價:{{item.newProduct.price}}</p>
                 </div>
@@ -47,7 +47,7 @@
                 </div>
             </div>
         </section>
-        <section class="check-total container text-right p-4">
+        <section class="check-total container text-right p-2">
             <div class="row  ml-auto border-top border-bottom p-4">
                 <div class="col-6">
                     <h4>運費</h4>
@@ -59,16 +59,18 @@
                     <h4>{{cartItemNumber}}</h4>
                     <h4 class="text-danger">NT{{cartTotal}}</h4>
                 </div>
-            </div>
-            <div class=" d-flex justify-content-between">
-                <router-link class="sp-btn btn-pulse" tag="button" :to="{name:'Products'}">
-                    <i class="fas fa-shopping-cart"></i> 繼續購物
-                </router-link>
-                <router-link class="sp-btn btn-pulse-2 w-100" tag="button" :to="{name:'Fill'}">
-                    <i class="fas fa-pen-alt"></i> 填寫資料
-                </router-link>
+                <div class="col-12 mt-4">
+                    <router-link class="sp-btn btn-pulse-2" tag="button" :to="{name:'Fill'}">
+                        <i class="fas fa-pen-alt"></i> 填寫資料
+                    </router-link>
+                </div>
             </div>
         </section>
+        <div class="my-3">
+            <router-link class="sp-btn btn-pulse" tag="button" :to="{name:'Products'}">
+                <i class="fas fa-shopping-cart"></i> 繼續購物
+            </router-link>
+        </div>
     </div>
 </template>
 
@@ -105,6 +107,13 @@ import{ mapGetters } from 'vuex'
     p{
         margin: 0;
         font-size: 20px;
+    }
+    .row{
+    border-radius: 25px;
+    color:#fff;
+    background: url('../../assets/jeremy-perkins-uhjiu8FjnsQ-unsplash.jpg');
+    box-shadow:  6px 6px 17px #d1d1d1, 
+             -6px -6px 17px #ffffff;
     }
 }
 </style>
