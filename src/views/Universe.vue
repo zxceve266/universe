@@ -1,21 +1,21 @@
 <template>
     <div class="universe ">
-        <Navbar2 />
+        <Navbar />
         <transition name="fade">
-            <router-view class="pt-4 mt-4"/>
+            <router-view class="pt-4 mt-4" />
         </transition>
         <Footer />
-        <CartIcon/>
+        <CartIcon />
     </div>
 </template>
 
 <script>
-    import Navbar2 from '../views/Navbar2'
+    import Navbar from '../views/Navbar'
     import Footer from '../views/Footer'
     import CartIcon from '../components/Universe/CartIcon'
     export default {
         components: {
-            Navbar2,
+            Navbar,
             Footer,
             CartIcon
         },
@@ -23,8 +23,88 @@
 </script>
 
 
-<style>
-.universe{
-    position: relative;
-}
+<style lang="scss">
+    .universe {
+        position: relative;
+    }
+
+    div.floating-cart {
+        position: fixed;
+        top: 0;
+        left: 0;
+        background: #fff;
+        border-radius: 25px;
+        z-index: 999;
+        overflow: hidden;
+    }
+
+    div.floating-cart>.card {
+        &:hover {
+            transform: scale(1);
+        }
+    }
+
+    .universe.startMove div.floating-cart {
+        top: -10% !important;
+        left: 87% !important;
+        transform: scale(0.3);
+        transition: all 800ms ease-out;
+    }
+
+    .universe.toCart div.floating-cart {
+        top: -28% !important;
+        left: 87% !important;
+        transform: scale(0);
+        transition: all 200ms ease-out;
+    }
+    .universe.toCart{
+        .cartIcon{   
+        transform: scale(1.2);  
+        background-color: red;
+        }
+    }
+    .universe.toCart {
+        nav .cart-list {
+            transform:scale(1.3);
+            a,i{
+                color:#fff;
+            }
+        }
+    }
+
+
+    @media (max-width: 992px) {
+        .universe.startMove div.floating-cart {
+            top: 40% !important;
+            left: 78% !important;
+        }
+
+        .universe.toCart div.floating-cart {
+            top: 60% !important;
+            left: 78% !important;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .universe.startMove div.floating-cart {
+            left: 72% !important;
+        }
+
+        .universe.toCart div.floating-cart {
+            top: 60% !important;
+            left: 75% !important;
+        }
+    }
+
+    @media (max-width: 470px) {
+        .universe.startMove div.floating-cart {
+            left: 58% !important;
+        }
+
+        .universe.toCart div.floating-cart {
+            left: 60% !important;
+        }
+    }
+
+    
 </style>

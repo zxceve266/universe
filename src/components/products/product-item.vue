@@ -11,7 +11,7 @@
         <div class="row mt-5">
             <div v-for="item in setProductPagination[currentPage]" :key="item.id"
                 class="col-12 col-md-6 col-lg-4 col-xl-3 mb-4 ">
-                <div class="card">
+                <div class="card" ref="card">
                     <div class="cart-img mx-auto p-2">
                         <img :src="item.newProduct.img" class="img-item" alt="...">
                     </div>
@@ -26,8 +26,9 @@
                             <router-link tag="button" :to="`/products/${item.id}/info`" class="sp-btn btn-pulse-2">
                                 <i class="fas fa-search-dollar"></i>
                             </router-link>
-                            <button class="sp-btn btn-pulse" @click="addToCart(item)">
-                                <i class="fas fa-cart-arrow-down"></i></button>
+                            <i class="fas fa-cart-arrow-down sp-btn btn-pulse"
+                            @click="addToCart(item,$event)"
+                            ></i>
                         </div>
                     </div>
                 </div>
@@ -57,9 +58,38 @@
             ]),
         },
         methods: {
-            addToCart(item) {
-                this.$store.commit('AddToCart', item)
-                this.$swal("以加入購物車", '', 'success')
+            addToCart(item,e) {
+                const that = this
+                const productCard = e.target.parentNode.parentNode.parentNode
+                const rect = productCard.getBoundingClientRect()
+                const position = {//找出offset
+                        top : rect.top ,
+                        left : rect.left 
+                    }
+                const html = `<div class="floating-cart"></div>`,//創造浮動div
+                    body = document.querySelector('.universe')
+                body.insertAdjacentHTML('beforeend', html);//插入Body
+                let floatCart = document.querySelector('.floating-cart')//抓到剛剛創造的浮動div
+                let cloneCart = productCard.cloneNode(true)//複製productCard
+                floatCart.appendChild(cloneCart)//插入到浮動div
+     
+                floatCart.style.top = position.top+'px'
+                floatCart.style.left = position.left+'px'
+            
+                setTimeout(function(){
+                    body.classList.add("startMove")
+                }, 0);
+                setTimeout(function(){
+                    body.classList.add("toCart")
+                    body.classList.remove("startMove")
+                }, 800);
+                setTimeout(function(){
+                    floatCart.remove()
+                    body.classList.remove("toCart")
+                    that.$store.commit('AddToCart', item)
+                }, 1000);
+               
+                // this.$swal("以加入購物車", '', 'success')
             },
             setCurrentPage(page) {
                 this.$store.commit('setCurrentPage', page)
@@ -68,7 +98,7 @@
                 let value = event.target.value
                 console.log(value)
                 this.$store.commit('setItemPerPage', value)
-            }
+            },
         }
     }
 </script>
@@ -87,6 +117,11 @@
 
         &:hover {
             transform: scale(1.1);
+        }
+        i{
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
     }
 

@@ -85,7 +85,7 @@
         background-color: #000;
         border-radius: 50%;
         box-shadow: 0 0 20px 5px #66fcf1;
-        transition: box-shadow 0.5s;
+        transition: all 0.5s;
         z-index: 99;
 
         &:hover {

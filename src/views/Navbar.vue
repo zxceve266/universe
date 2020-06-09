@@ -1,89 +1,69 @@
 <template>
-        <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
-            <router-link class="navbar-brand" :to="{name:'Home'}">Space Empire</router-link>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav w-100 text-center">
-                    <li class="nav-item">
-                        <router-link class="nav-link" :to="{name:'Home'}">首頁</router-link>
-                    </li>
-                    <li class="nav-item">
-                        <router-link class="nav-link" :to="{name:'Products'}">產品</router-link>
-                    </li>
-                    <!-- <li class="nav-item">
-                        <router-link class="nav-link" :to="{name:'Serve'}">服務</router-link>
-                    </li>
-                    <li class="nav-item">
-                        <router-link class="nav-link" :to="{name:'Travel'}">旅遊</router-link>
-                    </li> -->
-                    <li class="nav-item">
-                        <router-link class="nav-link" :to="{name:'About'}">關於</router-link>
-                    </li>
-                    <!-- <li class="nav-item">
-                        <router-link class="nav-link" :to="{name:'Admin'}">後台</router-link>
-                    </li> -->
-                    <li class="nav-item ml-lg-auto">
-                        <router-link class="nav-link" :to="{name:'User'}">{{isUser}}</router-link>
-                    </li>
-                    <li class="nav-item dropdown  d-none d-lg-block">
-                        <a class="nav-link dropdown-toggle cart" id="navbarDropdown" role="button"
-                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    <nav >
+        <div class=" d-flex">
+            <router-link class="logo" :to="{name:'Home'}">Space Empire</router-link>
+            <ul class="ml-auto mr-4" ref="toggleNav" @click="linkActive">
+                <li>
+                    <router-link :to="{name:'Home'}">首頁</router-link>
+                </li>
+                <li>
+                    <router-link :to="{name:'Products'}">產品</router-link>
+                </li>
+                <li>
+                    <router-link :to="{name:'About'}">關於</router-link>
+                </li>
+                <li>
+                    <router-link :to="{name:'User'}">{{isUser}}</router-link>
+                </li>
+                <li class="cart-list d-none d-lg-inline-block">
+                    <a class="nav-Cart" @click.prevent="openToggle">
                             <i class="fas fa-shopping-cart"></i>
                             購物車
                             <span>{{cartItemNumber}}</span>
-                        </a>
-                        
-                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown"
-                        >
-                            <div class="nav-cart-items"
-                            @click.stop
-                            >
-                                <div class="container-fluid" 
-                                v-for="(item, index) in cartItem" 
-                                :key="index"
-                                >
-                                    <div class="row p-2">
-                                        <div class="col-3">
-                                            <img :src="item.newProduct.img" class="img-fluid" alt="">
-                                        </div>
-                                        <div class="col-9">
-                                            <h6>{{item.newProduct.name}}</h6>
-                                            <span>數量:{{item.newProduct.quantity}}</span>
-                                            <span>價格:NT{{item.newProduct.price}}</span>
-                                            <i class="far fa-times-circle"
-                                            @click="removeItem(index)"
-                                            ></i>
-                                        </div>
-                                        
+                    </a>
+                    <section class="cartIcon-detail" v-show="isShow" @click.stop>
+                        <div class="cartIcon-display">
+                            <div class="container-fluid" v-for="(item, index) in cartItem" :key="index">
+                                <div class="row p-2 w-100 align-items-center mx-auto">
+                                    <div class="col-3 p-0">
+                                        <img :src="item.newProduct.img" class="img-fluid" alt="">
                                     </div>
-                                    <div class="dropdown-divider"></div>
+                                    <div class="col-4">
+                                        <h6 class="text-center">{{item.newProduct.name}}</h6>
+                                        <!-- <i class="far fa-times-circle" @click="removeItem(index)"></i> -->
+                                    </div>
+                                    <div class="col-5">
+                                        <p>數量:{{item.newProduct.quantity}}</p>
+                                        <p>價格:NT{{item.newProduct.price}}</p>
+                                        <i class="far fa-times-circle" @click="removeItem(index)"></i>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="px-2 pb-2" v-if="cartItemNumber !== 0">
                                 <div class="dropdown-divider"></div>
-                                <div class="row mb-2">
-                                    <div class="col-7">
-                                        全部有: <span class=" text-success">{{cartItemNumber}}件商品</span>
-                                    </div>
-                                    <div class="col-5">總共: <span class="text-danger">NT {{cartTotal}}</span></div>
-                                </div>
-                                    <router-link class="btn btn-info d-block"
-                                    :to="{name:'Confirm'}">結帳去
-                                    </router-link>
-                            </div>
-                            <div class="p-2 " v-else>
-                                <h2 class="m-0">購物車是空的，趕快去買東西吧</h2>
                             </div>
                         </div>
-                        
-                    </li>
-                </ul>
-            </div>
-        </nav>
+                        <div class="px-3 pb-3 mt-3" v-if="cartItemNumber !== 0">
+                            <div class="row ">
+                                <div class="col-7">
+                                    全部有: <span class=" text-success">{{cartItemNumber}}件商品</span>
+                                </div>
+                                <div class="col-5">總共: <span class="text-danger">NT {{cartTotal}}</span></div>
+                            </div>
+                            <router-link class="sp-btn btn-flip w-100 mt-3" tag="button" @click.native="openToggle" :to="{name:'Confirm'}">
+                                <span class="btn-flip__visible">全部有{{cartItemNumber}}件商品</span>
+                                <span class="btn-flip__invisible">結帳</span>
+                            </router-link>
+                        </div>
+                        <div class="p-4 " v-else>
+                            <h4 class="m-0 text-center">購物車是<span style="color:#66fcf1">空的</span><br>趕快去買東西吧</h4>
+                        </div>
+                    </section>
+                </li>
+            </ul>
+        </div>
+        <span class="menu-icon d-block d-lg-none" ref="globe" @click="toggle">
+            <i class="fas fa-globe-americas"></i>
+        </span>
+    </nav>
 </template>
 
 <script>
@@ -91,6 +71,12 @@
         mapGetters
     } from 'vuex'
     export default {
+        data() {
+            return {
+                isShow: true,
+                toggleNav: false
+            }
+        },
         computed: {
             ...mapGetters([
                 'cartItemNumber',
@@ -98,89 +84,222 @@
                 'cartTotal',
                 'currentUser'
             ]),
-            isUser(){
-                if(this.currentUser){
+            isUser() {
+                if (this.currentUser) {
                     return this.currentUser
-                }else{
+                } else {
                     return '登入'
                 }
             }
         },
-        methods:{
-            removeItem(index){
-                this.$store.commit('RemoveFromCart',index)
+        methods: {
+            openToggle() {
+                this.isShow = !this.isShow
+            },
+            removeItem(index) {
+                this.$store.commit('RemoveFromCart', index)
+            },
+            toggle() {
+                this.$refs.toggleNav.classList.toggle('active')
+                this.$refs.globe.classList.toggle('active')
+            },
+            linkActive(e){
+                let tagName = e.target.nodeName
+                if(tagName === 'A' || tagName === "LI"){
+                    this.$refs.toggleNav.classList.remove('active')
+                    this.$refs.globe.classList.remove('active')
+                }
             }
+        },
+        mounted() {
+            document.addEventListener('click', (e) => { //當點擊其它區域收起
+                if (!this.$el.contains(e.target)) this.isShow = false
+            })
         }
     }
-    
 </script>
-
-<style lang="scss">
-    .navbar{
+<style lang="scss" scoped>
+    nav {
+        position: fixed;
+        top: 0;
+        width: 100%;
         background-color: #000;
-    }
-    .navbar-nav a {
-        font-size: 20px;
-        margin: 0 10px;
+        height: 60px;
+        color: #fff;
+        z-index: 10;
+        text-decoration: none;
+        box-sizing: border-box;
 
-    }
-
-    .navbar-brand{
-        font-family: 'Oswald', sans-serif;
-    }
-
-
-    .cart {
-        position: relative;
-        span {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 30px;
-            height: 30px;
-            border-radius: 50%;
-            background-color: red;
-            font-size: 16px;
-            text-align: center;
-            line-height: 30px;
+        .logo {
+            display: block;
+            font-family: 'Oswald', sans-serif;
             color: #fff;
-            font-style: normal;
+            font-size: 25px;
+            line-height: 60px;
+            text-decoration: none;
+            height: 100%;
+            margin: 0 60px;
         }
     }
 
-    .dropdown-menu {
-        width: 30vw;
-        position: relative;
-        .nav-cart-items{
-            max-height: 50vh;
-            overflow-x: hidden;
-            // overflow-y: auto;
-            i{
-                position: absolute;
-                top: 0;
-                right: 0;
+    ul {
+        list-style: none;
+        height: 100%;
+
+        li {
+            margin: 0 30px;
+            display: inline-block;
+
+            a {
+                text-decoration: none;
+                color: #c5c6c7;
                 font-size: 20px;
+                line-height: 60px;
+
+                &:hover {
+                    color: #fff;
+                }
+
+                &:active {
+                    color: #fff;
+                }
             }
         }
+    }
+
+    .cartIcon-detail {
+        position: absolute;
+        bottom: -30%;
+        transform: translateY(100%);
+        right: 20px;
+        background-color: #111;
+        border-radius: 20px;
+        color: #fff;
 
         &::before {
             content: '';
             position: absolute;
             display: block;
-            top: -0.8em;
-            right: 20px;
+            top: -0.9em;
+            right: 30px;
             width: 0;
-            height:0;
+            height: 0;
             z-index: 2;
-            border-bottom: 20px solid #fff;
-            border-left: 20px solid transparent;
-            border-right: 20px solid transparent;
+            border-bottom: 15px solid #111;
+            border-left: 15px solid transparent;
+            border-right: 15px solid transparent;
             border-top: 0;
 
         }
-        h2{
+
+        h4 {
+            line-height: 1.5;
+        }
+    }
+
+
+    .cartIcon-display {
+        width: 40vw;
+        max-height: 35vh;
+        overflow-x: hidden;
+
+        img {
+            height: 13vh;
+            width: 13vh;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+
+        p {
+            margin: 0;
+        }
+
+        i {
+            position: absolute;
+            top: -15%;
+            right: -5%;
+            font-size: 30px;
+
+            &:active {
+                color: red;
+            }
+        }
+    }
+
+    .nav-Cart {
+        position: relative;
+        transition: all 0.5s;
+        span {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            right: -40%;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background-color: red;
+            font-size: 15px;
             text-align: center;
-            font-size: 18px;
+            line-height: 28px;
+            color: #fff;
+            font-style: normal;
+        }
+    }
+    .cart-list{
+        transition: all 0.5s;
+    }
+
+
+    @media (max-width:992px) {
+        nav {
+            .logo {
+                margin: 0 auto;
+            }
+        }
+
+        ul {
+            display: none;
+            transition: all 1s;
+        }
+
+        ul.active {
+            position: absolute;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            padding: 0;
+            height: 100vh;
+            width: 100vw;
+            background-color: #000;
+
+            li {
+                a {
+                    font-size: 30px;
+                }
+            }
+        }
+
+        .menu-icon {
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+
+            i {
+                font-size: 30px;
+                box-shadow: 0 0 25px 3px #66fcf1;
+                border-radius: 50%;
+                transition: 0.5s all;
+            }
+
+            &.active {
+                i {
+                    box-shadow: 0 0 40px 5px #fff;
+                    color: #66fcf1;
+                    transform: scale(1.2);
+                }
+            }
         }
     }
 </style>
