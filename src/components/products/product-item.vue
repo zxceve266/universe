@@ -82,12 +82,12 @@
                 setTimeout(function(){
                     body.classList.add("toCart")
                     body.classList.remove("startMove")
-                }, 800);
+                }, 600);
                 setTimeout(function(){
                     floatCart.remove()
                     body.classList.remove("toCart")
                     that.$store.commit('AddToCart', item)
-                }, 1000);
+                }, 800);
                
                 // this.$swal("以加入購物車", '', 'success')
             },

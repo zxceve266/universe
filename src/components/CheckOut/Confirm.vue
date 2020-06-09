@@ -27,25 +27,27 @@
             </router-link>
         </div>
         <section class="check-detail container-fluid">
-            <div class="row align-items-center px-md-5 py-2 mb-3 border-top text-center" 
-            v-for="(item, index) in cartItem" :key="index">
-                <div class="col-12 col-md-3">
-                    <img :src="item.newProduct.img" class="confirm-img img-fluid py-2" alt="">
+            <transition-group name="list-complete" tag="div">
+                <div class="row align-items-center px-md-5 py-2 mb-3 border-top text-center " 
+                v-for="(item, index) in cartItem" :key="item.uuid">
+                    <div class="col-12 col-md-3">
+                        <img :src="item.newProduct.img" class="confirm-img img-fluid py-2" alt="">
+                    </div>
+                    <div class="col-12 col-md-3">
+                        <h4>{{item.newProduct.name}}</h4>
+                    </div>
+                    <div class="col-4 col-md-2 align-items-center">
+                        <p>數量:{{item.newProduct.quantity}}</p>
+                        <p>單價:{{item.newProduct.price}}</p>
+                    </div>
+                    <div class="col-4 col-md-2"><p>總計:{{item.newProduct.quantity * item.newProduct.price}}</p></div>
+                    <div class="col-4 col-md-1 text-center">
+                            <i class="fas fa-trash-alt btn btn-danger"
+                            @click="removeItem(index)"
+                            ></i>
+                    </div>
                 </div>
-                <div class="col-12 col-md-3">
-                    <h4>{{item.newProduct.name}}</h4>
-                </div>
-                <div class="col-4 col-md-2 align-items-center">
-                    <p>數量:{{item.newProduct.quantity}}</p>
-                    <p>單價:{{item.newProduct.price}}</p>
-                </div>
-                <div class="col-4 col-md-2"><p>總計:{{item.newProduct.quantity * item.newProduct.price}}</p></div>
-                <div class="col-4 col-md-1 text-center">
-                    <button class="btn btn-danger" @click="removeItem(index)">
-                        <i class="fas fa-trash-alt text-light"></i>
-                    </button>
-                </div>
-            </div>
+            </transition-group>
         </section>
         <section class="check-total container text-right p-2">
             <div class="row  ml-auto border-top border-bottom p-4">
@@ -86,7 +88,6 @@ import{ mapGetters } from 'vuex'
         },
         methods:{
             removeItem(index){
-                console.log(index)
                 this.$store.commit('RemoveFromCart',index)
             }
         }
@@ -114,6 +115,29 @@ import{ mapGetters } from 'vuex'
     background: url('../../assets/jeremy-perkins-uhjiu8FjnsQ-unsplash.jpg');
     box-shadow:  6px 6px 17px #d1d1d1, 
              -6px -6px 17px #ffffff;
+    transition: all 1s;
+    }
+
+    .row.remove{
+        position: relative;
+        transform: translateX(100%);
     }
 }
+
+.list-complete-item {
+    transition: all 1s;
+    display: inline-block;
+    margin-right: 10px;
+}
+.list-complete-enter, .list-complete-leave-to
+/* .list-complete-leave-active for below version 2.1.8 */ {
+    opacity: 0;
+    transform: translateX(100%) scale(0.1);
+}
+.list-complete-leave-active {
+    position: absolute;
+}
+// .list-complete-move{
+//     transition: transform 1s;
+// }
 </style>

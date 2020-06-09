@@ -48,7 +48,7 @@
         top: -10% !important;
         left: 87% !important;
         transform: scale(0.3);
-        transition: all 800ms ease-out;
+        transition: all 600ms ease-out;
     }
 
     .universe.toCart div.floating-cart {

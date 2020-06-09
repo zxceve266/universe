@@ -18,7 +18,11 @@ const getters ={
 
 const mutations = {
     AddToCart:(state,item)=>{
-        state.cartItem.push(item)
+        let cartItem = {
+            ...item,
+            uuid: Math.random().toString(16).slice(2)//生成uuid作為辨識
+        }
+        state.cartItem.push(cartItem)
         localStorage.setItem('cartData', JSON.stringify(state.cartItem))
     },
     RemoveFromCart(state,index){
