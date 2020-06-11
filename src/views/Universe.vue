@@ -32,6 +32,7 @@
         position: fixed;
         top: 0;
         left: 0;
+        width: 300px;
         background: #fff;
         border-radius: 25px;
         z-index: 999;
@@ -39,6 +40,7 @@
     }
 
     div.floating-cart>.card {
+        white-space: nowrap;
         &:hover {
             transform: scale(1);
         }
@@ -46,14 +48,14 @@
 
     .universe.startMove div.floating-cart {
         top: -10% !important;
-        left: 87% !important;
-        transform: scale(0.3);
+        left: 82% !important;
+        transform: scale(0.2);
         transition: all 600ms ease-out;
     }
 
     .universe.toCart div.floating-cart {
         top: -28% !important;
-        left: 87% !important;
+        left: 82% !important;
         transform: scale(0);
         transition: all 200ms ease-out;
     }
@@ -76,18 +78,7 @@
     @media (max-width: 992px) {
         .universe.startMove div.floating-cart {
             top: 40% !important;
-            left: 78% !important;
-        }
-
-        .universe.toCart div.floating-cart {
-            top: 60% !important;
-            left: 78% !important;
-        }
-    }
-
-    @media (max-width: 768px) {
-        .universe.startMove div.floating-cart {
-            left: 72% !important;
+            left: 75% !important;
         }
 
         .universe.toCart div.floating-cart {
@@ -96,13 +87,24 @@
         }
     }
 
-    @media (max-width: 470px) {
+    @media (max-width: 768px) {
         .universe.startMove div.floating-cart {
-            left: 58% !important;
+            left: 70% !important;
         }
 
         .universe.toCart div.floating-cart {
-            left: 60% !important;
+            left: 70% !important;
+        }
+    }
+
+    @media (max-width: 470px) {
+        .universe.startMove div.floating-cart {
+            left: 50% !important;
+        }
+
+
+        .universe.toCart div.floating-cart {
+            left: 50% !important;
         }
     }
 

@@ -140,7 +140,7 @@
                 orderInfo:{
                     email:'zzz@ccc.com',
                     name:'王小民',
-                    phone:'0987091717',
+                    phone:'0974698532',
                     address:'宜蘭縣宜蘭市前端路123號',
                 }
             }

@@ -23,23 +23,23 @@
                     </a>
                     <section class="cartIcon-detail" v-show="isShow" @click.stop>
                         <div class="cartIcon-display">
-                            <div class="container-fluid" v-for="(item, index) in cartItem" :key="index">
-                                <div class="row p-2 w-100 align-items-center mx-auto">
-                                    <div class="col-3 p-0">
-                                        <img :src="item.newProduct.img" class="img-fluid" alt="">
+                                <div class="container-fluid" v-for="(item, index) in cartItem" :key="item.uuid">
+                                    <div class="row p-2 w-100 align-items-center mx-auto">
+                                        <div class="col-3 p-0">
+                                            <img :src="item.newProduct.img" class="img-fluid" alt="">
+                                        </div>
+                                        <div class="col-4">
+                                            <h6 class="text-center">{{item.newProduct.name}}</h6>
+                                            <!-- <i class="far fa-times-circle" @click="removeItem(index)"></i> -->
+                                        </div>
+                                        <div class="col-5">
+                                            <p>數量:{{item.newProduct.quantity}}</p>
+                                            <p>價格:NT{{item.newProduct.price}}</p>
+                                            <i class="far fa-times-circle" @click="removeItem(index)"></i>
+                                        </div>
                                     </div>
-                                    <div class="col-4">
-                                        <h6 class="text-center">{{item.newProduct.name}}</h6>
-                                        <!-- <i class="far fa-times-circle" @click="removeItem(index)"></i> -->
-                                    </div>
-                                    <div class="col-5">
-                                        <p>數量:{{item.newProduct.quantity}}</p>
-                                        <p>價格:NT{{item.newProduct.price}}</p>
-                                        <i class="far fa-times-circle" @click="removeItem(index)"></i>
-                                    </div>
+                                    <div class="dropdown-divider"></div>
                                 </div>
-                                <div class="dropdown-divider"></div>
-                            </div>
                         </div>
                         <div class="px-3 pb-3 mt-3" v-if="cartItemNumber !== 0">
                             <div class="row ">
@@ -200,7 +200,7 @@
 
     .cartIcon-display {
         width: 40vw;
-        max-height: 35vh;
+        max-height: 36vh;
         overflow-x: hidden;
 
         img {

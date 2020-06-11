@@ -205,12 +205,24 @@
 }
  
 ::-webkit-scrollbar-track {
-  box-shadow: inset 0 0 6px rgba(0,0,0,0.8); 
+  // box-shadow: inset 0 0 6px rgba(0,0,0,1); 
+  background-color: #000;
   border-radius: 10px;
 }
  
 ::-webkit-scrollbar-thumb {
   border-radius: 10px;
-  background-color: #fff;
+  background-image: linear-gradient(to right, $color-primary, $color-primary-dark);
+  // box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
+}
+
+
+.cart-list-enter, .cart-list-leave-to
+/* .list-complete-leave-active for below version 2.1.8 */ {
+    opacity: 0;
+    transform: translateX(100%);
+}
+.cart-list-leave-active {//讓刪除的元素脫離文檔流，旁邊的元素才能過渡過來
+    position: absolute;
 }
 </style>

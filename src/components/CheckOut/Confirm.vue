@@ -27,7 +27,7 @@
             </router-link>
         </div>
         <section class="check-detail container-fluid">
-            <transition-group name="list-complete" tag="div">
+            <transition-group name="cart-list" tag="div">
                 <div class="row align-items-center px-md-5 py-2 mb-3 border-top text-center " 
                 v-for="(item, index) in cartItem" :key="item.uuid">
                     <div class="col-12 col-md-3">
@@ -124,20 +124,5 @@ import{ mapGetters } from 'vuex'
     }
 }
 
-.list-complete-item {
-    transition: all 1s;
-    display: inline-block;
-    margin-right: 10px;
-}
-.list-complete-enter, .list-complete-leave-to
-/* .list-complete-leave-active for below version 2.1.8 */ {
-    opacity: 0;
-    transform: translateX(100%) scale(0.1);
-}
-.list-complete-leave-active {
-    position: absolute;
-}
-// .list-complete-move{
-//     transition: transform 1s;
-// }
+
 </style>

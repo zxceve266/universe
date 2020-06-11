@@ -6,7 +6,7 @@
 
         <section class="cartIcon-detail" v-show="isShow" @click.stop>
             <div class="cartIcon-display">
-                <div class="container-fluid" v-for="(item, index) in cartItem" :key="index">
+                <div class="container-fluid" v-for="(item, index) in cartItem" :key="item.uuid">
                     <div class="row p-2 w-100 align-items-center mx-auto">
                         <div class="col-3 p-0">
                             <img :src="item.newProduct.img" class="img-fluid" alt="">

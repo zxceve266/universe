@@ -1,6 +1,7 @@
 <template>
     <div class="admin-sideNav min-vh-100"
-        
+    ref="sideNav"
+    @click="toggle($event)"
     >
         <div class="side-content h-100">
             <h3 class="text-center pt-5">後臺<br>管理系統</h3>
@@ -37,6 +38,12 @@
 <script>
     export default {
         
+       methods:{
+        toggle(e){
+            if (e.target.href === 'http://localhost:8080/#/home') return
+            this.$refs.sideNav.classList.toggle('active')
+        }
+    }
     }
 </script>
 
@@ -46,10 +53,11 @@
         background-color: #1f2833;
         color: #fff;
         transition: all 0.8s;
+        // white-space: nowrap;
+        position: relative;
 
         ul {
             list-style: none;
-
             // color: #fff;
             li {
                 margin-top: 20px;
@@ -57,6 +65,34 @@
             }
         }
 
+        
+
+    }
+
+    @media (max-width: 992px){
+        .admin-sideNav{
+            width: 50vw;
+            transform: translateX(-50vw);
+            position: fixed;
+            z-index: 99;
+
+            &.active{
+                width:50vw;
+                transform: translateX(0);
+            }
+
+            &::before{
+                content: '';
+                position: absolute;
+                width: 50px;
+                height: 50px;
+                background-color: #000;
+                top: 50%;
+                right: -50px;
+                z-index: 9999;
+                user-select: all;
+            }
+        }
     }
 
    

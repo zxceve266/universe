@@ -16,7 +16,7 @@
                     <td>{{item.id}}</td>
                     <td>已付款</td>
                     <td>
-                        <button class="btn btn-success">
+                        <button class="btn btn-success" @click="toggleDetail(item)">
                             <i class="fas fa-search"></i>
                             查看
                         </button>
@@ -30,21 +30,31 @@
             @goSetCurrentPage="setCurrentPage"
         >
         </Pagination>
+        <div class="mask d-flex justify-content-center align-items-center"
+         v-if="isDetail"
+         @click.self="toggleDetail()"
+         >
+            <OrderDetail :detailData="detailData" @close="toggleDetail"/>
+        </div>
     </div>
 </template>
 
 <script>
 import { mapGetters } from 'vuex'
 import Pagination from '../Pagination'
+import OrderDetail from './OrderDetail'
     export default {
         data(){
             return{
                 itemPerPage:7, //設定每一頁的訂單數量
-                currentPage:0  //目前分頁
+                currentPage:0,  //目前分頁
+                isDetail:false,
+                detailData:[]
             }
         },
         components:{
-            Pagination
+            Pagination,
+            OrderDetail
         },
         computed:{
             ...mapGetters([
@@ -68,6 +78,11 @@ import Pagination from '../Pagination'
         methods:{
             setCurrentPage(page){
                 this.currentPage = page
+            },
+            toggleDetail(item){
+                this.isDetail = !this.isDetail
+                if(!item) return
+                this.detailData = item
             }
         }
     }

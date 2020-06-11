@@ -1,11 +1,9 @@
 <template>
     <div class="overflow-hidden d-flex">
-        <SideNav ref="sideNav"/>
+        <SideNav/>
         <router-view class="min-vh-100"/>
         <!-- <loading :active.sync="isLoading"></loading> -->
-        <div class="toggle-btn d-lg-none" ref="adminBtn" @click="toggle()">
-            <i class="fas fa-angle-double-right"></i>
-        </div>
+        
     </div>
 </template>
 
@@ -16,12 +14,6 @@ import SideNav from '../components/Admin/SideNav'
         components:{
             SideNav
         },
-        methods: {
-            toggle() {
-                this.$refs.sideNav.$el.classList.toggle('active')
-                this.$refs.adminBtn.classList.toggle('active')
-            }
-        }
         
     }
 </script>
@@ -47,17 +39,15 @@ import SideNav from '../components/Admin/SideNav'
             left: 50vw;
         }
     }
-
-    @media (max-width: 992px){
-        .admin-sideNav{
-            overflow: hidden;
-            position: fixed;
-             z-index: 99;
-            width: 0;
-            &.active{
-                width:50vw;
-            }
-        }
+    .mask{
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0,0,0,0.7);
     }
+
+    
 
 </style>
