@@ -19,26 +19,6 @@ import SideNav from '../components/Admin/SideNav'
 </script>
 
 <style lang="scss">
-    .toggle-btn {
-        position: fixed;
-        top: 50%;
-        left: 0;
-        transform: translateY(-50%);
-        width: 5vh;
-        height: 5vh;
-        background-color: #1f2833;
-        text-align: center;
-        transition: all 0.8s;
-        cursor: pointer;
-        i {
-            color: white;
-            font-size: 3vh;
-            line-height: 5vh;
-        }
-        &.active{
-            left: 50vw;
-        }
-    }
     .mask{
         position: fixed;
         top: 0;

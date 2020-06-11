@@ -96,6 +96,7 @@ import{ mapGetters } from 'vuex'
 
 <style lang="scss">
 .check-detail{
+    position: relative;
     i{
         font-size:25px;
     }
@@ -114,14 +115,14 @@ import{ mapGetters } from 'vuex'
     color:#fff;
     background: url('../../assets/jeremy-perkins-uhjiu8FjnsQ-unsplash.jpg');
     box-shadow:  6px 6px 17px #d1d1d1, 
-             -6px -6px 17px #ffffff;
-    transition: all 1s;
+                -6px -6px 17px #ffffff;
+    transition: all 0.8s;
     }
 
-    .row.remove{
-        position: relative;
-        transform: translateX(100%);
-    }
+    // .row.remove{
+    //     position: relative;
+    //     transform: translateX(100%);
+    // }
 }
 
 

@@ -201,7 +201,7 @@
 
 
 ::-webkit-scrollbar {
-  width: 4px;
+  width: 6px;
 }
  
 ::-webkit-scrollbar-track {
@@ -220,9 +220,10 @@
 .cart-list-enter, .cart-list-leave-to
 /* .list-complete-leave-active for below version 2.1.8 */ {
     opacity: 0;
-    transform: translateX(100%);
+    transform:rotate(15deg) translate(100% ,-100%);
 }
 .cart-list-leave-active {//讓刪除的元素脫離文檔流，旁邊的元素才能過渡過來
     position: absolute;
+    width: 100%;
 }
 </style>

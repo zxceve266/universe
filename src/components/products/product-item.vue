@@ -41,10 +41,13 @@
 
 <script>
     import Pagination from '../Pagination'
-    import {
-        mapGetters
-    } from 'vuex'
+    import {mapGetters} from 'vuex'
     export default {
+        data(){
+            return{
+                isClick:true//防止多點
+            }
+        },
         components: {
             Pagination
         },
@@ -59,36 +62,40 @@
         },
         methods: {
             addToCart(item,e) {
-                const that = this
-                const productCard = e.target.parentNode.parentNode.parentNode
-                const rect = productCard.getBoundingClientRect()
-                const position = {//找出offset
-                        top : rect.top ,
-                        left : rect.left 
-                    }
-                const html = `<div class="floating-cart"></div>`,//創造浮動div
-                    body = document.querySelector('.universe')
-                body.insertAdjacentHTML('beforeend', html);//插入Body
-                let floatCart = document.querySelector('.floating-cart')//抓到剛剛創造的浮動div
-                let cloneCart = productCard.cloneNode(true)//複製productCard
-                floatCart.appendChild(cloneCart)//插入到浮動div
-     
-                floatCart.style.top = position.top+'px'
-                floatCart.style.left = position.left+'px'
-            
-                setTimeout(function(){
-                    body.classList.add("startMove")
-                }, 0);
-                setTimeout(function(){
-                    body.classList.add("toCart")
-                    body.classList.remove("startMove")
-                }, 600);
-                setTimeout(function(){
-                    floatCart.remove()
-                    body.classList.remove("toCart")
-                    that.$store.commit('AddToCart', item)
-                }, 800);
-               
+                if(this.isClick){
+                    this.isClick = false
+                    const that = this
+                    const productCard = e.target.parentNode.parentNode.parentNode
+                    const rect = productCard.getBoundingClientRect()
+                    const position = {//找出offset
+                            top : rect.top ,
+                            left : rect.left 
+                        }
+                    const html = `<div class="floating-cart"></div>`,//創造浮動div
+                        body = document.querySelector('.universe')
+                    body.insertAdjacentHTML('beforeend', html);//插入Body
+                    let floatCart = document.querySelector('.floating-cart')//抓到剛剛創造的浮動div
+                    let cloneCart = productCard.cloneNode(true)//複製productCard
+                    floatCart.appendChild(cloneCart)//插入到浮動div
+        
+                    floatCart.style.top = position.top+'px'
+                    floatCart.style.left = position.left+'px'
+                
+                    setTimeout(function(){
+                        body.classList.add("startMove")
+                    }, 0);
+                    setTimeout(function(){
+                        body.classList.add("toCart")
+                        body.classList.remove("startMove")
+                    }, 600);
+                    setTimeout(function(){
+                        floatCart.remove()
+                        body.classList.remove("toCart")
+                        that.$store.commit('AddToCart', item)
+                        that.isClick = true
+                    }, 800);
+                }
+                
                 // this.$swal("以加入購物車", '', 'success')
             },
             setCurrentPage(page) {

@@ -23,7 +23,7 @@
                             <i class="fas fa-trash-alt"></i>
                             刪除
                         </button>
-                        <button class="btn btn-success" @click="editProduct">
+                        <button class="btn btn-success" @click="toggleDetail(item)">
                             <i class="far fa-edit"></i>
                             編輯
                         </button>
@@ -37,21 +37,31 @@
             @goSetCurrentPage="setCurrentPage"
         >
         </Pagination>
+        <div class="mask d-flex justify-content-center align-items-center"
+            v-if="isDetail"
+            @click.self="toggleDetail()"
+        >
+            <ProductsDetail :detailData="detailData" @close="toggleDetail"/>
+        </div>
     </div>
 </template>
 
 <script>
 import { mapGetters } from 'vuex'
 import Pagination from '../Pagination'
+import ProductsDetail from './ProductsDetail'
     export default {
          data(){
             return{
                 itemPerPage:7, //設定每一頁的訂單數量
-                currentPage:0  //目前分頁
+                currentPage:0,  //目前分頁
+                isDetail:false,
+                detailData:[]
             }
         },
         components:{
-            Pagination
+            Pagination,
+            ProductsDetail
         },
         computed:{
             ...mapGetters([
@@ -72,8 +82,10 @@ import Pagination from '../Pagination'
             }
         },
         methods:{
-            editProduct(){
-                
+            toggleDetail(item){
+                this.isDetail = !this.isDetail
+                if(!item) return
+                this.detailData = item
             },
             removeProduct(id){
                 let that = this

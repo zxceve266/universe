@@ -31,8 +31,8 @@
         >
         </Pagination>
         <div class="mask d-flex justify-content-center align-items-center"
-         v-if="isDetail"
-         @click.self="toggleDetail()"
+            v-if="isDetail"
+            @click.self="toggleDetail()"
          >
             <OrderDetail :detailData="detailData" @close="toggleDetail"/>
         </div>
