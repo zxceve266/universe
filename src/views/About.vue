@@ -58,7 +58,7 @@
   .about-banner {
     height: 100vh;
     width: 100%;
-    background: url('../assets/spacex-OHOU-5UVIYQ-unsplash.jpg') no-repeat;
+    background: url('../assets/launch.webp') no-repeat;
     background-attachment: fixed;
     background-size: cover;
     background-position: top;

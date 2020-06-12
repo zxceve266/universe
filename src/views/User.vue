@@ -89,7 +89,7 @@
 
 <style lang="scss">
 .user{
-    background: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/499416/demo-bg.jpg') no-repeat;
+    background: url('../assets/login.webp') no-repeat;
     background-position:bottom;
     background-size: cover;
     height:100vh;

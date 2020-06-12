@@ -12,7 +12,7 @@
 
 <style lang="scss" scoped>
 .banner{
-   background: url('../../assets/sky.jpg') no-repeat;
+   background: url('../../assets/sky.webp') no-repeat;
    background-size: cover;
    background-position: bottom;
    background-attachment: fixed;
