@@ -36,7 +36,7 @@
 <style lang="scss" scoped>
     .category-list {
         position: sticky;
-        top: 60px;
+        top: 120px;
 
         ul {
             list-style: none;

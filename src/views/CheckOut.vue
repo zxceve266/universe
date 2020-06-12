@@ -1,4 +1,5 @@
 <template>
+<div class=" overflow-hidden">
     <div class="check-out container">
         <template v-if="cartItemNumber > 0">
             <router-view></router-view>
@@ -14,6 +15,7 @@
                     </router-link>
             </div>
     </div>
+</div>
 </template>
 
 <script>

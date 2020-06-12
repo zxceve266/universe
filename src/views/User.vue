@@ -2,7 +2,7 @@
 <div class="user overflow-hidden">
     <div class="container h-100 d-flex align-items-center justify-content-center justify-content-md-start">
         <form class=" my-auto" v-if="!currentUser">
-            <h3>會員登入</h3>
+            <h3>管理員登入</h3>
             <div class="form-group">
                 <label for="exampleInputEmail1">電子郵件</label>
                 <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
@@ -36,8 +36,8 @@
     export default {
         data() {
             return {
-                email: 'test@test.com',
-                password: '123456',
+                email: '',
+                password: '',
             }
         },
         computed: {

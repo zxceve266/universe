@@ -1,5 +1,5 @@
 <template>
-    <div class="universe overflow-hidden">
+    <div class="universe">
         <Navbar />
         <transition name="fade">
             <router-view class="pt-4 mt-4" />
