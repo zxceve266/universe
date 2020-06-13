@@ -28,6 +28,10 @@
         methods: {
             setCatgory(item) {
                 this.$store.commit('setCatgory', item)
+                scrollTo({
+                    top:440,
+                    behavior:'smooth'
+                })
             }
         }
     }
@@ -36,7 +40,7 @@
 <style lang="scss" scoped>
     .category-list {
         position: sticky;
-        top: 120px;
+        top: 140px;
 
         ul {
             list-style: none;
@@ -56,8 +60,7 @@
             cursor: pointer;
             border-radius: 50%;
             background: #ffffff;
-           box-shadow:  6px 6px 15px #d1d1d1, 
-             -6px -6px 15px #ffffff;
+            box-shadow:  6px 6px 15px #d1d1d1;
             // transition: all 0.5s;
             position: relative;
 

@@ -11,9 +11,9 @@
                 <p>寄送時間：2~3個工作天</p>
                 <div class="quantity">
                     <span class="number mr-4">購買數量</span>
-                    <span class="green-btn">&#8722;</span>
-                    <span>5</span>
-                    <span class="green-btn">&#43;</span>
+                    <span class="num-btn" @click="minus"><i class="fas fa-minus"></i></span>
+                    <span>{{quantity}}</span>
+                    <span class="num-btn" @click="plus"><i class="fas fa-plus"></i></span>
                 </div>
                 <h2 class="text-danger mt-4">${{getItem.newProduct.price}}</h2>
                 <button class="sp-btn btn-pulse" @click="addToCart(getItem)">
@@ -30,6 +30,10 @@
                 <p class="text-left">{{getItem.newProduct.detail}}</p>
             </div>
         </div>
+        <div class="row">
+            <div class="col-12 col-md-6 col-lg-4">
+            </div>
+        </div>
     </div>
 </template>
 
@@ -38,6 +42,11 @@
         mapGetters
     } from 'vuex'
     export default {
+        data(){
+            return{
+                quantity:1
+            }
+        },
         computed: {
             ...mapGetters(['findItem']),
             getItem() {
@@ -57,8 +66,22 @@
         },
         methods: {
             addToCart(item) {
-                this.$store.commit('AddToCart', item)
+                let quantity = this.quantity
+                this.$store.commit('AddToCart',{
+                    newProduct:{
+                    ...item.newProduct,//只將item裡面newProduct放進去
+                    },
+                    quantity//info 的數量
+                })
                 this.$swal("以加入購物車", '', 'success')
+                this.quantity = 1
+            },
+            plus(){
+                this.quantity ++
+            },
+            minus(){
+                if(this.quantity === 1) return
+                this.quantity --
             }
         },
     }
@@ -86,19 +109,38 @@
             width: 30px;
             height: 30px;
             text-align: center;
+            font-size: 22px;
             line-height: 30px;
             display: inline-block;
+            box-sizing: border-box;
+            vertical-align: middle;
+            transition: 0.3s all;
         }
 
         .number {
             width: auto;
         }
+
+        .num-btn {
+            border-radius: 10px;
+            border: 1.5px solid #fff;
+            padding-bottom: 2px;
+            position: relative;
+           
+            i{
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%,-50%);
+                font-size: 14px;
+            }
+            &:hover{
+                border-color: #66fcf1;
+                color: #66fcf1;
+            }
+        }
     }
 
-    .green-btn {
-        background-color: #66fcf1;
-        cursor: pointer;
-    }
 
     .line {
         width: 100%;

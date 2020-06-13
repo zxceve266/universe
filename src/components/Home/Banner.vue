@@ -1,13 +1,28 @@
 <template>
-   <div class="banner">
+   <div class="banner" ref="banner">
       <h1 class="mb-5 wow zoomIn" data-wow-duration="1.5s">來一場太空之旅吧</h1>
       <em class="banner-subText px-4 wow fadeInUp" data-wow-delay="0.5s">We are all in the gutter, but some of us are looking at the stars.</em>
-      <button class="sp-btn btn-fill mt-5 wow fadeInUp" data-wow-delay="0.5s"><span>開始探索</span></button>
+      <button class="sp-btn btn-fill mt-5 wow fadeInUp" data-wow-delay="0.5s"
+      @click="slide"
+      >
+         <span>開始探索</span>
+      </button>
    </div>
 </template>
 
 <script>
-   
+   export default {
+      methods:{
+         slide(){
+            let rect = this.$refs.banner.getBoundingClientRect()
+            console.log(rect.height)
+            window.scrollTo({
+               top:rect.height,
+               behavior:'smooth'
+            })
+         }
+      }
+   }
 </script>
 
 <style lang="scss" scoped>

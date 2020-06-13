@@ -1,14 +1,18 @@
 <template>
     <div class="product-item container">
-        <h2 class="mb-4 text-center">{{currentCategory}}</h2>
-        <label class="d-block" for="category">設定每頁顯示商品數量</label>
-        <select class="form-control w-25 d-inline-block" id="category" @change="chengePerItem($event)">
-            <option>4</option>
-            <option>8</option>
-            <option>12</option>
-        </select>
-        <h3 class="text-right d-inline-block ml-5">共{{setProdcutsNum}}筆商品</h3>
-        <div class="row mt-5">
+        <h1 class=" text-center"><span class="text-primary">{{currentCategory}}</span>系列</h1>
+        <label class="d-block" for="category">每頁顯示商品數量</label>
+        <div class="d-flex justify-content-between">
+            <select class="form-control w-25 d-inline-block" id="category" @change="chengePerItem($event)">
+                <option>4</option>
+                <option>8</option>
+                <option>12</option>
+            </select>
+            <h3 class="text-right d-inline-block ml-5">
+                共<span class="text-primary">{{setProdcutsNum}}筆</span>商品
+            </h3>
+        </div>
+        <div class="row mt-3">
             <div v-for="item in setProductPagination[currentPage]" :key="item.id"
                 class="col-12 col-md-6 col-lg-4 col-xl-3 mb-4 ">
                 <div class="card" ref="card">
@@ -111,6 +115,10 @@
 </script>
 
 <style lang="scss" scoped>
+    h1{
+        letter-spacing: 5px;
+        font-weight: 700;
+    }
     .card {
         color: #fff;
         background: #000;
@@ -123,7 +131,7 @@
         }
 
         &:hover {
-            transform: scale(1.1);
+            transform: scale(1.07);
         }
         i{
             display: flex;

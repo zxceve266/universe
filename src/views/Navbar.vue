@@ -33,8 +33,9 @@
                                             <!-- <i class="far fa-times-circle" @click="removeItem(index)"></i> -->
                                         </div>
                                         <div class="col-5">
-                                            <p>數量:{{item.newProduct.quantity}}</p>
-                                            <p>價格:NT{{item.newProduct.price}}</p>
+                                            <p>數量 : {{item.newProduct.quantity}}</p>
+                                            <p>單價 : {{item.newProduct.price}}</p>
+                                            <p>總價 : NT{{item.newProduct.price * item.newProduct.quantity}}</p>
                                             <i class="far fa-times-circle" @click="removeItem(index)"></i>
                                         </div>
                                     </div>
@@ -44,9 +45,9 @@
                         <div class="px-3 pb-3 mt-3" v-if="cartItemNumber !== 0">
                             <div class="row ">
                                 <div class="col-7">
-                                    全部有: <span class=" text-success">{{cartItemNumber}}件商品</span>
+                                    全部有 : <span class=" text-success">{{cartItemNumber}}件商品</span>
                                 </div>
-                                <div class="col-5">總共: <span class="text-danger">NT {{cartTotal}}</span></div>
+                                <div class="col-5">總計 : <span class="text-danger">NT {{cartTotal}}</span></div>
                             </div>
                             <router-link class="sp-btn btn-flip w-100 mt-3" tag="button" @click.native="openToggle" :to="{name:'Confirm'}">
                                 <span class="btn-flip__visible">全部有{{cartItemNumber}}件商品</span>

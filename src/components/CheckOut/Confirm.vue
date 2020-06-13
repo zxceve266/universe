@@ -37,10 +37,10 @@
                         <h4>{{item.newProduct.name}}</h4>
                     </div>
                     <div class="col-4 col-md-2 align-items-center">
-                        <p>數量:{{item.newProduct.quantity}}</p>
-                        <p>單價:{{item.newProduct.price}}</p>
+                        <p>數量 : {{item.newProduct.quantity}}</p>
+                        <p>單價 : {{item.newProduct.price}}</p>
                     </div>
-                    <div class="col-4 col-md-2"><p>總計:{{item.newProduct.quantity * item.newProduct.price}}</p></div>
+                    <div class="col-4 col-md-2"><p>總計 : {{item.newProduct.quantity * item.newProduct.price}}</p></div>
                     <div class="col-4 col-md-1 text-center">
                             <i class="fas fa-trash-alt btn btn-danger"
                             @click="removeItem(index)"

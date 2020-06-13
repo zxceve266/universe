@@ -8,7 +8,7 @@
                     <p>信箱 : <b>{{info.email}}</b></p>
                     <p>電話 : <b>{{info.phone}}</b></p>
                     <p>地址 : <b>{{info.address}}</b></p>
-                    <span>共{{items.length}}件商品</span>
+                    <span>共{{totalItems}}件商品</span>
                     <span class="ml-4">總價 {{total}}</span>
                 </div>
                 <div class="col-12 col-lg-6 order-item">
@@ -49,6 +49,13 @@ export default {
             total += item.newProduct.quantity * item.newProduct.price
             });
             return total
+        },
+        totalItems(){
+            let number = 0
+            this.items.forEach((item)=>{
+                number += item.newProduct.quantity
+            })
+            return number
         }
     },
     methods:{

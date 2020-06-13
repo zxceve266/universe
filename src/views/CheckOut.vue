@@ -2,9 +2,11 @@
 <div class=" overflow-hidden">
     <div class="check-out container">
         <template v-if="cartItemNumber > 0">
-            <router-view></router-view>
-            </template>
-             <div class="empty container mt-5" v-else>
+            <transition name="fade">
+                <router-view></router-view>
+            </transition>
+        </template>
+            <div class="empty container mt-5" v-else>
                     <h2>購物車是空的，趕快去買東西吧</h2>
                     <p>所有商品即享有7天不滿意即退費</p>
                     <router-link  

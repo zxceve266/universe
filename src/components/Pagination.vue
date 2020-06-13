@@ -2,7 +2,7 @@
     <nav class="mt-2 w-100">
         <ul class="d-flex justify-content-center" v-if="pagination.length > 0">
             <li :class="{'disabled': currentPage <= 0}" 
-            @click.prevent="setCurrentPage((currentPage - 1),$event)"
+            @click.prevent="setCurrentPage((currentPage - 1))"
             >
                 <i class="fas fa-angle-left"></i>
             </li>
@@ -13,7 +13,7 @@
             </li>
 
             <li :class="{'disabled': currentPage >= pagination.length - 1}"
-                @click.prevent="setCurrentPage((currentPage + 1),$event)">
+                @click.prevent="setCurrentPage((currentPage + 1))">
                 <i class="fas fa-angle-right"></i>
             </li>
         </ul>
@@ -32,9 +32,11 @@
             currentPage: Number
         },
         methods: {
-            setCurrentPage(page,e) {
-                console.log(this.currentPage+1,e)
-                scrollTo(0, 0)
+            setCurrentPage(page) {
+                scrollTo({
+                    top:440,
+                    behavior:'smooth'
+                })
                 this.$emit('goSetCurrentPage', page)
             }
         }
