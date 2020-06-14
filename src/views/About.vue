@@ -1,6 +1,7 @@
 <template>
   <div class="about">
     <div class="about-banner">
+      <h2 class="wow fadeInUp" data-wow-duration="1s">關於我們</h2>
     </div>
     <section class="about-content py-5">
       <div class="container py-4">
@@ -12,7 +13,7 @@
         <h2 class="mt-5">提供服務</h2>
         <div class="row align-items-center justify-content-center mt-4">
           <div class="col-12 col-md-6">
-            <img src="https://img.mp.itc.cn/upload/20170731/9ef8d760441c46c8a4c75a44c8e59934_th.jpg" class=" img-fluid" alt="">
+            <img src="https://lsbc.lu/wp-content/uploads/asteroid_base_800x450.jpg" class=" img-fluid" alt="">
           </div>
           <div class="col-12 col-md-6 mt-4">
             <h3>小行星採礦</h3>
@@ -62,6 +63,15 @@
     background-attachment: fixed;
     background-size: cover;
     background-position: top;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    h2 {
+      color: #fff;
+      font-size: 9vh;
+      letter-spacing: 15px;
+      text-shadow: 3px 3px #000;
+    }
 
   }
 

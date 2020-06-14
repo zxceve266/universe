@@ -83,7 +83,7 @@
     h2 {
       color: #fff;
       font-size: 9vh;
-      letter-spacing: 10px;
+      letter-spacing: 15px;
       text-shadow: 3px 3px #000;
     }
   }

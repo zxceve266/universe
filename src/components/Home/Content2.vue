@@ -43,23 +43,23 @@
                 </div>
                 <div class="collaboration">
                     <h2 class="text-center mt-4">戰略合作夥伴</h2>
-                    <div class="row align-items-center justify-content-center">
+                    <div class="row align-items-center justify-content-center mt-5">
                         <div class="col-12 col-lg-4 text-center">
                             <img src="../../assets/elon-musk.png" class="img-fluid" alt="...">
                         </div>
-                        <div class="avatar-content px-4 py-3 col-10 col-lg-7 mt-4 mt-md-0">
-                            <h5 class="mt-0">伊龍·馬撕客</h5>
-                            Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin.
-                            Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc
-                            ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+                        <div class="avatar-content px-3 py-2 col-10 col-lg-7 mt-4 mt-md-0">
+                            <h3 class="my-2">伊龍·馬撕客</h3>
+                            <p>
+                            Elon Musk，是一名出生於南非的企業家，他同時具有南非、美國以及加拿大國籍，並以 SpaceX 創辦者及特斯拉汽車與PayPal（原X.com）的聯合創辦人而聞名。目前，馬斯克擔任SpaceX的執行長兼首席設計師、特斯拉汽車執行長兼產品架構師以及SolarCity的董事長；與此同時，他還是現代第一輛可行電動車Tesla Roadster的聯合設計者之一。在2019年富比士美國400富豪榜，他以199億美元的資產，排名第23名
+                            </p>
                         </div>
                     </div>
                     <div class="row align-items-center justify-content-center">
-                        <div class="avatar-content px-4 py-3 col-10 col-lg-7 mt-4 mt-md-0 order-2">
-                            <h5 class="mt-0">鎂國太空總署</h5>
-                            Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin.
-                            Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc
-                            ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+                        <div class="avatar-content px-3 py-2 col-10 col-lg-7 mt-4 mt-md-0 order-2">
+                            <h3 class="my-2">鎂國太空總署</h3>
+                            <p>
+                            美國航空暨太空總署被廣泛認為是世界範圍內太空機構中執牛耳者。美國國家航空暨太空總署透過地球觀測系統提升對地球的了解，透過太陽科學研究計畫精進太陽科學。美國國家航空暨太空總署注重於利用先進的機器人太空載具任務探索太陽系中的的所有天體，並利用天文觀測台及相關計畫研究天體物理學中的主題，例如大爆炸理論。美國國家航空暨太空總署與許多美國國內及國際的組織分享其研究數據。是世界上最大的政府性質航太機構。  
+                            </p>
                         </div>
                         <div class="col-12 col-lg-4 text-center order-1 order-lg-3">
                             <img src="../../assets/nasa.png" class="img-fluid" alt="...">
@@ -139,7 +139,7 @@
         color: #fff;
 
         h2 {
-            font-size: 6vh;
+            font-size: 7vh;
             line-height: 1.5;
         }
 
@@ -152,14 +152,26 @@
             line-height: 2;
             font-size: 18px;
         }
-
+    }
+    .collaboration{
+        h2{
+            font-size: 6vh;
+            position: relative;
+            &::before {
+                content: '';
+                position: absolute;
+                bottom: -5px;
+                width: 36vh;
+                height: 5px;
+                background-color: #66fcf1;
+            }
+        }
+        .avatar-content {
+            border: 2px solid #66fcf1;
+            border-radius: 30px;
+        }
     }
 
-
-    .avatar-content {
-        border: 3px solid #66fcf1;
-        padding: 10px;
-    }
 
 
     .bg-1,
@@ -189,8 +201,6 @@
                 background-color: #66fcf1;
             }
         }
-
-
     }
 
     .bg-2 {
