@@ -1,0 +1,2 @@
+(window["webpackJsonp"]=window["webpackJsonp"]||[]).push([["chunk-2d0c1615"],{4696:function(n,t,e){"use strict";e.r(t);var c=function(){var n=this,t=n.$createElement,e=n._self._c||t;return e("div",{staticClass:"travel"},[n._v(" 旅遊 ")])},l=[],s={},a=s,u=e("2877"),r=Object(u["a"])(a,c,l,!1,null,null,null);t["default"]=r.exports}}]);
+//# sourceMappingURL=chunk-2d0c1615.3fdd39ef.js.map
