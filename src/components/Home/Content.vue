@@ -3,7 +3,8 @@
         <div class="container mt-5">
             <div class="row justify-content-between align-items-center">
                 <div class="col-md-8 text-center text-md-left wow fadeInLeft" data-wow-duration="2s">
-                    <h2>宇宙<br>人類的終極邊疆</h2>
+                    <h2 style="color:#66fcf1" class="text-center" >宇宙</h2>
+                    <h2 class="text-center">人類的終極邊疆</h2>
                     <p class="lead mt-4">地球相對於宇宙來說就是個小點。在這個小點上，每一個你愛的人，每一個你認識的人，每一個你聽說過的人，每一個人，無論他是誰，都曾經生活過。<br>我們所有的快樂和掙扎，數以千萬自傲的宗教信仰、思想體系觀念意識，以及經濟學原理教義，每一個獵人或征服者，每一位勇士或是懦夫，每一個文明的締造者或摧毀者，每一位君王或農夫，每一對陷入愛河的年輕伴侶，每一位為人父母者，所有充滿希望的小孩，發明家或探險者，每一位靈魂導師，每一個腐敗的政客，每一個所謂的『超級巨星』，每一個所謂的『最偉大領袖』，每一位我們人類史上的聖人或是罪人……我們的一切一切，全部都存在於這樣一粒懸浮在一束陽光中的塵埃上。我們的腳步不可只停留在這小點上，人類的探險旅途才正要開始。</p>
                     <br>
                 </div>
@@ -59,8 +60,11 @@
         }
 
         p {
-            color: #c5c6c7;
+            color: #fff;
             line-height: 1.75;
+            position: relative;
+            text-indent: 2ch;
+            z-index: 2;
         }
        
 

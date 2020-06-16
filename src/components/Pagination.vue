@@ -34,7 +34,7 @@
         methods: {
             setCurrentPage(page) {
                 scrollTo({
-                    top:440,
+                    top:520,
                     behavior:'smooth'
                 })
                 this.$emit('goSetCurrentPage', page)

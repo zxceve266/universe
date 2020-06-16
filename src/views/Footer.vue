@@ -27,11 +27,11 @@ footer{
     background-color: #000;
     color: #fff;
     a{
-        font-size: 25px;
-        margin: 0 20px;
+        font-size: 20px;
+        margin: 0 10px;
     }
     p{
-      font-size: 20px;
+      font-size: 16px;
     }
 }
 </style>
